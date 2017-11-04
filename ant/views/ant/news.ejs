@@ -1,0 +1,318 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>蚂蚁资讯</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/base.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/news.css">
+</head>
+<body> -->
+	<!-- head公共部分 -->
+	<!-- <div class="header">
+		<div class="w header_B">
+			<div class="header_Bleft fl">
+				<a href="#">设为首页</a>
+				<a href="#">收藏本站</a>
+			</div>
+			<div class="header_Bright fr">
+				
+				<% if(log){ %>
+				<div class="log_Z">
+					<a href="#" class="user_img login">
+						<%= islog.username %>
+					</a>
+				</div>
+				<a href="/logout" style="float:left;display:block;width: 41px;height: 45px;line-height:45px;border-right:1px solid #e5e5e5">注销</a>
+				<% }else{ %>	
+				<div class="log_Z">
+					<a href="#" class="login">
+						请登录
+					</a>
+					<div class="log">
+						<p>用户名：</p>
+						<input type="text" name="" class="text">
+						<p>密码:<a href="" class="fr">忘记密码？</a></p>
+						<input type="password" name="" class="pass">
+						<div class="log1">
+							<input type="checkbox" name=""><span>下次自动登录</span>
+							<input type="button" name="" id="btn" value="立即登录">
+						</div>
+						<p  class=La_p><a href="">QQ账号登录</a></p>
+					</div>
+				</div>
+				<a href="/_reg" class="register">立即注册</a>
+				<% } %>
+				<a href="#" class="kuai"></a>
+			</div>
+		</div>
+	</div>
+	<div class="header_Top w">
+		<div class="HH_top">
+			<div class="H_top">
+				<div class="logo fl">
+					<a href="#"><img src="./imgs/logo.png"></a>
+				</div>
+				<div class="search fr">
+					<input class="sctext fl" type="text" name="" placeholder="请输入搜索内容">
+					<div class="stick">
+						<a href="javascript:;" class="scbar fl">帖子</a>
+						<ul class="stick1">
+							<li><a href="javascript:;">文章</a></li>
+							<li><a href="javascript:;">帖子</a></li>
+							<li><a href="javascript:;">用户</a></li>
+						</ul>
+					</div>
+
+					<input type="button" name="" class="scbtn fl">
+				</div>
+			</div>
+		</div>
+		<div class="nav">
+			<img class="nav_new" src="imgs/new.gif">
+			<img class="nav_hot" src="imgs/hot.gif">
+			<ul class="nav_U" total="<%= total %>">
+				<% for(var i=0;i<f1.length;i++){ %>
+				<li <% if(f1[i].cname ==fen) {%> class="act_blu"    <% } %>  >
+					<a href="/tiao?n=<%= f1[i].cname %>" title="<%= f1[i].title %>"><%= f1[i].cname %></a>
+				</li>
+				<% } %>
+
+			</ul>
+		</div>
+	</div> -->
+	<!-- head公共部分 -->
+<% include head.ejs %>
+
+
+	<div class="content w">
+		<div class="con_Ltop">
+			<a href="" class="shou"></a>
+			<span class="con_Ltop_sp">></span>
+			<a class="shou1" href="/">首页</a>
+			<span class="con_Ltop_sp">></span>
+			<%= deta[0].cate %>	
+		</div>
+		<div class="content_Z">
+			<div class="con_left fl">
+				<div class="zixun">
+					<h1><%= deta[0].cate %></h1>
+					<a href="" class="rss">订阅</a>
+				</div>
+				<div class="zixun_big" total="<%= total %>">	
+				<% for (var i=0;i<deta.length;i++){ %>
+				<div class="zixun_1">
+					<h3><a href=""><%= deta[i].title %></a></h3>
+					<div class="zixun_1-1">
+						<a href=""><img src="./imgs/<%= deta[i].pic %>"></a>
+						<div class="zixun_1-2 fl">
+							<p><%= deta[i].summary %></p>
+							<span><%= deta[i].shijian %></span>
+						</div>
+					</div>
+				</div> 
+				<% } %>
+				</div>
+
+
+
+
+
+
+				<ul id="pagination1" class="pagination"></ul>
+			</div>
+			<div class="con_right fr">
+				<div class="bm">
+					<ul>
+						<li><a href="">蚂蚁资讯</a></li>
+						<li><a href="">HTML5教程</a></li>
+						<li><a href="">HTML5源码下载</a></li>
+						<li><a href="">网站源码</a></li>
+					</ul>					
+				</div>
+				<div class="ggao">
+					<ul>
+						<li>
+							<a href="" class="img_a"><img src="./imgs/ggao1.jpg">
+								<img  class="img_ding" src="./imgs/ggao1_1.gif">
+							</a>
+							<p><a href="">html5学习</a></p>
+						</li>
+						<li>
+							<a href="" class="img_a"><img src="./imgs/ggao2.gif"></a>
+							<p><a href="">html5教程</a></p>
+						</li>
+						<li>
+							<a href="" class="img_a"><img src="./imgs/ggao3.jpg"></a>
+							<p><a href="">html5基础教程</a></p>
+						</li>
+						<li>
+							<a href="" class="img_a"><img src="./imgs/ggao4.jpg"></a>
+							<p><a href="">人保车险</a></p>
+						</li>
+					</ul>
+				</div>
+				<div class="remen">
+					<!-- <div class="kong fl"></div> -->
+					<!-- <h2>论坛BBS</h2> -->
+					<ul class="pai_ul">
+						<li class="fl blu"><a href="">热点资讯</a></li>
+						<li class="fl"><a href="">下载排行榜</a></li>
+						<li class="fl"><a href="">帖子排行榜</a></li>
+					</ul>
+					<div class="pai_mu">
+						<ul class="remen_muLeft disblo">
+							<li><a href="" title="运营级仿微信仿陌陌仿快手app源码出售转让">运营级仿微信仿陌陌仿快手app源码出售转</a></li>
+							<li><a href="" title="求大腿指点ajax请求成功后打开新页面被浏览器拦截">求大腿指点ajax请求成功后打开新页面被浏</a></li>
+							<li><a href="" title="搞棋牌的看过来!">搞棋牌的看过来!</a></li>
+							<li><a href="" title="求大神帮忙解决报错4303的问题">求大神帮忙解决报错4303的问题</a></li>
+							<li><a href="" title="html5游戏，2017卡通足球赛！">html5游戏，2017卡通足球赛！</a></li>
+							<li><a href="" title="html5游戏，冲破霓虹屏障">html5游戏，冲破霓虹屏障</a></li>
+							<li><a href="" title="打飞机大战 HTML5下载">打飞机大战 HTML5下载</a></li>
+							<li><a href="" title="【含演示地址】行走的阻击手源码下载">【含演示地址】行走的阻击手源码下载</a></li>
+							<li><a href="" title="钱，钱，钱，赚钱小游戏！">钱，钱，钱，赚钱小游戏！</a></li>
+							<li><a href="" title="钱，钱，钱，赚钱小游戏！">钱，钱，钱，赚钱小游戏！</a></li>
+						</ul>
+						<ul class="remen_muLeft">
+							<li><a href="" title="【HTML5手机游戏下载】微信红包整人之愚人节快乐">【HTML5手机游戏下载】微信红包整人之愚人节快乐</a></li>
+							<li><a href="" title="欢乐斗地主网页版！">欢乐斗地主网页版！</a></li>
+							<li><a href="" title="【HTML5手机游戏源码下载】开心消消乐！！！!">【HTML5手机游戏源码下载】开心消消乐！！！!</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】数钱数到手抽筋！">【HTML5手机游戏下载】数钱数到手抽筋！</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】js HTML5编码生成 网页版捕鱼达人游戏">【HTML5手机游戏下载】js HTML5编码生成 网页版捕鱼达人游戏</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】中秋节H5游戏，进击的兔子">【HTML5手机游戏下载】中秋节H5游戏，进击的兔子</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】中秋节博饼游戏">【HTML5手机游戏下载】中秋节博饼游戏</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】胸口碎大石！">【HTML5手机游戏下载】胸口碎大石！</a></li>
+							<li><a href="" title="【中秋节】插月饼">【中秋节】插月饼</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】360安全卫士飙车追妹子游戏">【HTML5手机游戏下载】360安全卫士飙车追妹子游戏</a></li>
+						</ul>
+						<ul class="remen_muLeft">
+							<li><a href="" title="html5游戏，2017卡通足球赛！">html5游戏，2017卡通足球赛！</a></li>
+							<li><a href="" title="html5游戏，冲破霓虹屏障">html5游戏，冲破霓虹屏障</a></li>
+							<li><a href="" title="【h5游戏源码】弗莱迪的实验!">【h5游戏源码】弗莱迪的实验!</a></li>
+							<li><a href="" title="房卡麻将(亲测)+教程+工具，可运行！欢迎下载！">房卡麻将(亲测)+教程+工具，可运行！欢迎下载！</a></li>
+							<li><a href="" title="求大神帮忙解决报错4303的问题">求大神帮忙解决报错4303的问题</a></li>
+							<li><a href="" title="求大腿指点ajax请求成功后打开新页面被浏览器拦截">求大腿指点ajax请求成功后打开新页面被浏览器拦截</a></li>
+							<li><a href="" title="经典卡牌手游【魔兽传奇】Cocos2d游戏源码">经典卡牌手游【魔兽传奇】Cocos2d游戏源码</a></li>
+							<li><a href="" title="Cocos2d 彩色泡泡五子棋 源码">Cocos2d 彩色泡泡五子棋 源码</a></li>
+							<li><a href="" title="挑战飞行棋，童年经典游戏源码下载">挑战飞行棋，童年经典游戏源码下载</a></li>
+							<li><a href="" title="html5游戏，2017卡通足球赛！">html5游戏，2017卡通足球赛！</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="remen pai_pai">
+					<div class="kong fl"></div>
+					<h2>热门教程</h2>
+					<div class="pai_qw pai_qwfir">
+						<dl>
+							<dt>
+								<a href=""><img src="./imgs/pai_qw1.jpg"></a>
+								<a href="" title="【教程下载】HTML5移动应用开发入门经典">【教程下载】HTML5移动应用开发入门经典</a>
+							</dt>
+							<dd>【HTML5开发教程下载】HTML5移动应用开发入门经典，总共24章，每章一个小时学习时间，</dd>
+						</dl>
+					</div>
+					<div class="pai_qw">
+						<dl>
+							<dt>
+								<a href=""><img src="./imgs/pai_qw2.jpg"></a>
+								<a href="" title="【教程下载】HTML5与CSS3权威指南">【教程下载】HTML5与CSS3权威指南</a>
+							</dt>
+							<dd>《HTML 5与CSS 3权威指南》内容系统而全面，详尽地讲解了html 5和css 3的所有新功能和</dd>
+						</dl>
+					</div>
+					<div class="pai_qw">
+						<dl>
+							<dt>
+								<a href=""><img src="./imgs/pai_qw3.jpg"></a>
+								<a href="" title="【教程下载】HTML5游戏开发（全）">【教程下载】HTML5游戏开发（全）</a>
+							</dt>
+							<dd>【HTML5游戏开发（全）】本书分为9章。 学习如何绘制游戏对象、绘制动画、加入音频等</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="guanggao">
+					<table cellspacing="3">
+						<tr>
+							<td class="ggsm"><a href="">洛克菲洛中心</a></td>
+							<td colspan="2" rowspan="2"  class="ggbg"><a href="">选绿茶还是红茶</a></td>
+						</tr>
+						<tr>
+							<td  class="ggsm"><a href="">上海</a></td>
+
+						</tr>
+						<tr>
+							<td colspan="2" rowspan="2"  class="ggbg"><a href="">选绿茶还是红茶</a></td>
+							<td class="ggsm"><a href="">洛克菲洛中心</a></td>
+						</tr>
+						<tr>
+							<td  class="ggsm"><a href="">上海</a></td>
+						</tr>
+						<tr>
+							<td class="ggsm"><a href="">洛克菲洛中心</a></td>
+							<td colspan="2" rowspan="2"  class="ggbg"><a href="">选绿茶还是红茶</a></td>
+						</tr>
+						<tr>
+							<td  class="ggsm"><a href="">上海</a></td>
+
+						</tr>
+						<tr>
+							<td colspan="2" rowspan="2"  class="ggbg"><a href="">选绿茶还是红茶</a></td>
+							<td class="ggsm"><a href="">洛克菲洛中心</a></td>
+						</tr>
+						<tr>
+							<td  class="ggsm"><a href="">上海</a></td>
+						</tr>
+						<tr>
+							<td class="ggsm"><a href="">洛克菲洛中心</a></td>
+							<td colspan="2" rowspan="2"  class="ggbg"><a href="">选绿茶还是红茶</a></td>
+						</tr>
+						<tr>
+							<td  class="ggsm"><a href="">上海</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>	
+<script type="text/javascript" src="./js/jqPaginator.js"></script>
+<script type="text/javascript">
+	 var total=$(".zixun_big").attr('total');
+	 // console.log(total)
+     var cate=$(".zixun h1").text();
+     // console.log(cate)
+    $.jqPaginator('#pagination1', {
+        totalPages: total-0 ,
+        visiblePages: 5,
+        currentPage: 1,
+        first: '<li class="first"><a href="javascript:;">首页</a></li>',
+        prev: '<li class="prev"><a href="javascript:;">上一页</a></li>',
+        next: '<li class="next"><a href="javascript:;">下一页</a></li>',
+        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        last: '<li class="last"><a href="javascript:;">尾页</a></li>',
+        onPageChange: function (num, type) {
+            $.ajax({
+                url: '/getnum',
+                type: 'post',
+                data: {page:num,c:cate},
+                success: function (msg) {
+                    var message=msg.stu; 
+                     $(".zixun_big").empty();
+                    for(var i= 0;i<message.length;i++){
+                    	var t="<div class='zixun_1'><h3><a href='/article-285?id="+message[i].id +"'>"+message[i].title +"</a></h3><div class='zixun_1-1'><a href='/article-285?id="+message[i].id +"'><img src='./imgs/"+ message[i].pic +"'></a><div class='zixun_1-2 fl'><p>"+ message[i].summary +"</p><span>"+ message[i].shijian +"</span></div></div></div>";
+                        $(".zixun_big").append(t);  
+                    }              
+                }
+            })
+
+        }
+    });
+</script>
+
+
+
+
+
+
+<% include foot.ejs %>

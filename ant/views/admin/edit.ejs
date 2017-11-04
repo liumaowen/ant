@@ -1,0 +1,138 @@
+<link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+<script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/ueditor/ueditor.config.js"></script> 
+<script type="text/javascript" src="/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+<article class="page-container">
+	<form class="form form-horizontal" id="form-article-add">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章标题：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="<%= user.title %>" placeholder="" id="title" name="">
+				<input type="hidden" name="id" id="cid" value="<%= user.id %>"/>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>发布时间：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="<%= user.shijian %>" placeholder="" id="sj" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>作者：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="<%= user.author %>" placeholder="" id="author" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章类型：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select name="" id="cate" class="select">
+					<option value="<%= user.cate %>" ><%= user.cate %></option>
+					<option value="1">蚂蚁资讯</option>
+					<option value="2">HTML5教程</option>
+					<option value="3">HTML5源码 </option>
+					<option value="4">网站源码</option>
+					<option value="5">HTML5游戏</option>
+					<option value="6">论坛</option>
+					<option value="7">专题</option>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>缩略图：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<img src="../upload/<%= user.pic %>" width="50" height="50" >
+				<input type="file" class="input-text" id="tupian" >
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">文章摘要：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" id="zy" ><%= user.summary %></textarea>
+				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">内容：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<script type="text/plain" style="height:400px;width:980px" name="content"   id="container" ><%- user.content %></script>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
+			</div>
+		</div>
+	</form>
+</article>
+
+
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/lib/My97DatePicker/4.8/WdatePicker.js"></script>  
+<script type="text/javascript" src="/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.page.js"></script>
+
+
+
+<script type="text/javascript">
+
+var ue=UE.getEditor('container');
+function article_save_submit(){
+	var tit=$("#title").val();
+	var t=$("#sj").val();
+	var summary=$("#zy").val();
+	var a=$("#author").val();
+	var c=$("#cate").val();
+	var cid=$("#cid").val();
+	var html=ue.getContent();
+
+	if(c==1||c=="蚂蚁资讯"){
+		c="蚂蚁资讯"
+	}else if(c==2||c=="HTML5教程"){
+		c="HTML5教程"
+	}else if(c==3||c=="HTML5源码"){
+		c="HTML5源码"
+	}else if(c==4||c=="网站源码"){
+		c="网站源码"
+	}else if(c==5||c=="HTML5游戏"){
+		c="HTML5游戏"
+	}else if(c==6||c=="论坛"){
+		c="论坛"
+	}else{
+		c="专题"
+	}
+	var formData=new FormData();
+	formData.append('file',$('#tupian')[0].files[0]);
+	formData.append('title',tit);
+	formData.append('sj',t);
+	formData.append('zy',summary);
+	formData.append('zz',a);
+	formData.append('fenlei',c);
+	formData.append('content',html);
+	formData.append('id',cid);
+	// console.log(formData);
+	$.ajax({
+			url: '/admin/update?id=<%= user.id %>',
+			type: 'POST',
+			cache: false,
+			data:formData,
+			processData: false,
+			contentType: false
+		  }).done(function(msg) {
+		  	if(msg.a){
+		  	 window.location.href="/admin/addcomments";
+		  	}else{
+		  		alert("输入有误，请重新输入")
+		  	}
+		}).fail(function(err) {});
+}
+</script>
+<!--/请在上方写此页面业务相关的脚本-->

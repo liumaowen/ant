@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>蚂蚁社区</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/base.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/article-285.css">
+</head>
+<body>
+	<div class="header">
+		<div class="w header_B">
+			<div class="header_Bleft fl">
+				<a href="#">设为首页</a>
+				<a href="#">收藏本站</a>
+			</div>
+			<div class="header_Bright fr">
+				<% if(log){ %>
+				<div class="log_Z">
+					
+					<a href="#" class="user_img login" style="float:left">
+						<%= islog.username %>
+					</a>
+				</div>
+				<a href="/logout" style="float:left;display:block;width: 41px;height: 45px;line-height:45px;border-right:1px solid #e5e5e5">注销</a>
+				<% }else{ %>	
+				<div class="log_Z">
+					<a href="#" class="login">
+						请登录
+					</a>
+					<div class="log">
+						<p>用户名：</p>
+						<input type="text" name="" class="text" id="username">
+						<p>密码:<a href="" class="fr">忘记密码？</a></p>
+						<input type="password" name="" class="pass" id=pass>
+						<div class="log1">
+							<input type="checkbox" name=""><span>下次自动登录</span>
+							<input type="button" name="" id="btn" value="立即登录">
+						</div>
+						<p  class=La_p><a href="">QQ账号登录</a></p>
+					</div>
+				</div>
+				<a href="/_reg" class="register">立即注册</a>
+				<% } %>
+				<a href="#" class="kuai"></a>
+			</div>
+		</div>
+	</div>
+	<div class="header_Top w">
+	<div class="HH_top">
+		<div class="H_top">
+			<div class="logo fl">
+				<a href="#"><img src="./imgs/logo.png"></a>
+			</div>
+			<div class="search fr">
+				<input class="sctext fl" type="text" name="" placeholder="请输入搜索内容">
+				<div class="stick">
+					<a href="javascript:;" class="scbar fl">帖子</a>
+					<ul class="stick1">
+						<li><a href="javascript:;">文章</a></li>
+						<li><a href="javascript:;">帖子</a></li>
+						<li><a href="javascript:;">用户</a></li>
+					</ul>
+				</div>
+				
+				<input type="button" name="" class="scbtn fl">
+			</div>
+		</div>
+	</div>
+	<div class="nav">
+		<img class="nav_new" src="imgs/new.gif">
+		<img class="nav_hot" src="imgs/hot.gif">
+		<ul class="nav_U">
+				<% for(var i=0;i<f1.length;i++){ %>
+				<li>
+					<a href="/tiao?n=<%= f1[i].cname %>" title="<%= f1[i].title %>"><%= f1[i].cname %></a>
+				</li>
+				<% } %>
+
+			</ul>
+	</div>
+</div>
+
+	<div class="content w">
+		<div class="con_Ltop">
+			<a href="" class="shou"></a>
+			<span class="con_Ltop_sp">></span>
+			<a class="shou1" href="/">首页</a>
+			<span class="con_Ltop_sp">></span>
+			<a class="shou1 shou2" href=""><%= da[0].cate %></a>
+			<span class="con_Ltop_sp">></span>
+			资查看内容	
+		</div>
+		<div class="content_Z">
+			<div class="con_left fl">
+				<div class="big">
+					<div class="big_h">
+						<h2><%= da[0].title %></h2>
+						<p class="atitle">
+							<span class="atitle_time"><%= da[0].shijian %></span>
+							<span lass="line">|</span>
+							<span>发布者：<a href=""><%= da[0].author %></a></span>
+							<span lass="line">|</span>
+							<em>查看：8850</em>
+							<span lass="line">|</span>
+							<span class=atitle_ping>评论：<a href="" title="查看全部评论">130</a></span>
+							<span>来自: 蚂蚁HTML5教程</span>
+						</p>
+					</div>
+					<div class="digest">
+						<p><strong>摘要</strong>: <%= da[0].summary %></p>
+					</div>
+					<div class="state"><%- da[0].content %></div>
+					<div class="big_img">
+						<a href=""><img src="./imgs/<%= da[0].pic %>"></a>
+					</div>
+					<div class="big_sao">
+						<p class="sao_1"><span>》》</span><a href="">教程下载地址</a><span>《《</span></p>
+						<p class="sao_2"><em>↓</em><em>↓</em><em>↓</em></p>
+						<p class="sao_3">提取<strong>密码</strong>，请关注蚂蚁HTML5社区官方微信，回复<strong>教程T</strong>，即可获取密码</p>
+					</div>
+					<div class="saowo">
+						<img src="./imgs/saom.png" alt="">
+					</div>
+				</div>
+				<div class="ping_icon">
+					<div class="wu fl">
+						<a href="">
+							<div class="tiao"><div class="tiao1"><em>1</em></div></div>
+							<img src="./imgs/wuyu.gif">
+							无语
+						</a>
+					</div>
+					<div class="wu fl">
+						<a href="">
+							<div class="tiao"><div class="tiao1"><em></em></div></div>
+							<img src="./imgs/jingxia.gif">
+							惊吓
+						</a>
+					</div>
+					<div class="wu fl">
+						<a href="">
+							<div class="tiao"><div class="tiao1"><em>7</em></div></div>
+							<img src="./imgs/qidai.gif">
+							期待
+						</a>
+					</div>
+					<div class="wu fl">
+						<a href="">
+							<div class="tiao"><div class="tiao1"><em>2</em></div></div>
+							<img src="./imgs/zan.gif">
+							很赞
+						</a>
+					</div>
+					<div class="wu fl">
+						<a href="">
+							<div class="tiao"><div class="tiao1"><em>2</em></div></div>
+							<img src="./imgs/cha.gif">
+							差劲
+						</a>
+					</div>
+				</div>
+				<div class="btuser">
+					<h3>刚表态过的朋友 <a href="">(12 人)</a></h3>
+					<div class="btuser_img">
+						<ul>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/noavatar_small.gif" alt="" title="期待"></a>
+								<p><a href="">hexieyamiedie</a></p>
+							</li>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/noavatar_small.gif" alt="" title="期待"></a>
+								<p><a href="">冰狐</a></p>
+							</li>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/34_avatar_small.jpg" alt="" title="期待"></a>
+								<p><a href="">skipoff</a></p>
+							</li>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/noavatar_small.gif" alt="" title="期待"></a>
+								<p><a href="">jennybridge</a></p>
+							</li>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/noavatar_small.gif" alt="" title="期待"></a>
+								<p><a href="">bao</a></p>
+							</li>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/noavatar_small.gif" alt="" title="期待"></a>
+								<p><a href="">路漫漫水长兮</a></p>
+							</li>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/noavatar_small.gif" alt="" title="期待"></a>
+								<p><a href="">zzxvictory</a></p>
+							</li>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/noavatar_small.gif" alt="" title="期待"></a>
+								<p><a href="">zzxvictory</a></p>
+							</li>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/noavatar_small.gif" alt="" title="期待"></a>
+								<p><a href="">mmao166</a></p>
+							</li>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/25_avatar_small.jpg" alt="" title="期待"></a>
+								<p><a href="">wscjxyx123</a></p>
+							</li>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/noavatar_small.gif" alt="" title="期待"></a>
+								<p><a href="">卍解</a></p>
+							</li>
+							<li>
+								<a class="tou" href=""><img width="48" height="48" src="./imgs/noavatar_small.gif" alt="" title="期待"></a>
+								<p><a href="">yaxin3690</a></p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="shangpian">
+					<p class="shangpian1">
+						<a href="" class="collect">收藏</a>
+						<a href="" class="invite">邀请</a>
+					</p>
+					<p class="shangpian2">上一篇：<a href="">【HTML5开发教程下载】HTML5移动开发即学即用(Video & Audio)</a></p>
+				</div>
+				<div class="xiangguan">
+					<h3>相关阅读</h3>
+				</div>
+				<div class="bm-c">
+					<ul>
+						<li>• <a href="">【HTML5开发教程下载】HTML5移动Web开发指南，唐俊开著。</a></li>
+						<li>• <a href="">【HTML5开发教程下载】HTML5与CSS3权威指南 PDF高清版</a></li>
+						<li>• <a href="">【HTML5开发教程下载】HTML5秘籍</a></li>
+						<li>• <a href="">【HTML5开发教程下载】图解CSS3：核心技术与案例实战</a></li>
+						<li>• <a href="">【HTML5开发教程下载】HTML5 Canvas核心技术 图形、动画与游戏开发</a></li>
+						<li>• <a href="">【HTML5开发教程下载】HTML5高级程序设计</a></li>
+						<li>• <a href="">【HTML5开发教程下载】HTML5+JavaScript动画基础</a></li>
+						<li>• <a href="">【HTML5开发教程下载】PhoneGap项目实战</a></li>
+						<li>• <a href="">【HTML5开发教程下载】写给Web开发人员看的HTML5教程</a></li>
+						<li>• <a href="">【HTML5开发教程下载】HTML5与CSS3实战指南</a></li>
+						<li>• <a href="">【HTML5开发教程下载】HTML5开发手册</a></li>
+						<li>• <a href="">【HTML5开发教程下载】HTML5揭秘中文版</a></li>
+						<li>• <a href="">【HTML5开发教程下载】HTML5移动开发即学即用(Video & Audio)</a></li>
+
+					</ul>
+				</div>
+				<div class="comment">
+					<div class="com_top">
+						<a href="javascript:;" id="fa">发表评论</a>
+						<h3>最新评论</h3>
+					</div>
+					<% for(var i=0;i<comments.length;i++){ %>
+					<div class="com_content">
+						<p class="comp1">
+							<span class="quo"><a href="">引用</a></span>
+							<a href="" class="username"><%= comments[i].author %></a>
+							<span class="com_time"><%= comments[i].time %></span>
+						</p>
+						<p  class="comp2"><%- comments[i].content %></p>
+					</div>
+					<% } %>
+					<p class="quanbu"><a href="">查看全部评论<span>(130)</span></a></p>
+					<form class="ping_edi"  method="post">
+						<div class="editor_kuang">
+							<input type="hidden" id="articleID" value="<%= da[0].id %>">
+							<input type="hidden" id="articleName" value="<%= gr.name %>">
+							<textarea name="text_ar" id="comments" cols="80" rows="3"></textarea>
+						</div>
+						<input type="button" value="评论" id="btn_submit" name="">
+					</form>
+				</div>
+
+
+
+
+			</div>
+			<div class="con_right fr">
+				<div class="bm">
+					<ul>
+						<li><a href="">蚂蚁资讯</a></li>
+						<li><a href="">HTML5教程</a></li>
+						<li><a href="">HTML5源码教程</a></li>
+						<li><a href="">网站源码</a></li>
+					</ul>					
+				</div>
+				<div class="ggao">
+					<ul>
+						<li>
+							<a href="" class="img_a"><img src="./imgs/ggao1.jpg">
+								<img  class="img_ding" src="./imgs/ggao1_1.gif">
+							</a>
+							<p><a href="">html5学习</a></p>
+						</li>
+						<li>
+							<a href="" class="img_a"><img src="./imgs/ggao2.gif"></a>
+							<p><a href="">html5教程</a></p>
+						</li>
+						<li>
+							<a href="" class="img_a"><img src="./imgs/ggao3.jpg"></a>
+							<p><a href="">html5基础教程</a></p>
+						</li>
+						<li>
+							<a href="" class="img_a"><img src="./imgs/ggao4.jpg"></a>
+							<p><a href="">人保车险</a></p>
+						</li>
+					</ul>
+				</div>
+				<div class="remen">
+					<!-- <div class="kong fl"></div> -->
+					<!-- <h2>论坛BBS</h2> -->
+					<ul class="pai_ul">
+						<li class="fl blu"><a href="">热点资讯</a></li>
+						<li class="fl"><a href="">下载排行榜</a></li>
+						<li class="fl"><a href="">帖子排行榜</a></li>
+					</ul>
+					<div class="pai_mu">
+						<ul class="remen_muLeft disblo">
+							<li><a href="" title="运营级仿微信仿陌陌仿快手app源码出售转让">运营级仿微信仿陌陌仿快手app源码出售转</a></li>
+							<li><a href="" title="求大腿指点ajax请求成功后打开新页面被浏览器拦截">求大腿指点ajax请求成功后打开新页面被浏</a></li>
+							<li><a href="" title="搞棋牌的看过来!">搞棋牌的看过来!</a></li>
+							<li><a href="" title="求大神帮忙解决报错4303的问题">求大神帮忙解决报错4303的问题</a></li>
+							<li><a href="" title="html5游戏，2017卡通足球赛！">html5游戏，2017卡通足球赛！</a></li>
+							<li><a href="" title="html5游戏，冲破霓虹屏障">html5游戏，冲破霓虹屏障</a></li>
+							<li><a href="" title="打飞机大战 HTML5下载">打飞机大战 HTML5下载</a></li>
+							<li><a href="" title="【含演示地址】行走的阻击手源码下载">【含演示地址】行走的阻击手源码下载</a></li>
+							<li><a href="" title="钱，钱，钱，赚钱小游戏！">钱，钱，钱，赚钱小游戏！</a></li>
+							<li><a href="" title="钱，钱，钱，赚钱小游戏！">钱，钱，钱，赚钱小游戏！</a></li>
+						</ul>
+						<ul class="remen_muLeft">
+							<li><a href="" title="【HTML5手机游戏下载】微信红包整人之愚人节快乐">【HTML5手机游戏下载】微信红包整人之愚人节快乐</a></li>
+							<li><a href="" title="欢乐斗地主网页版！">欢乐斗地主网页版！</a></li>
+							<li><a href="" title="【HTML5手机游戏源码下载】开心消消乐！！！!">【HTML5手机游戏源码下载】开心消消乐！！！!</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】数钱数到手抽筋！">【HTML5手机游戏下载】数钱数到手抽筋！</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】js HTML5编码生成 网页版捕鱼达人游戏">【HTML5手机游戏下载】js HTML5编码生成 网页版捕鱼达人游戏</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】中秋节H5游戏，进击的兔子">【HTML5手机游戏下载】中秋节H5游戏，进击的兔子</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】中秋节博饼游戏">【HTML5手机游戏下载】中秋节博饼游戏</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】胸口碎大石！">【HTML5手机游戏下载】胸口碎大石！</a></li>
+							<li><a href="" title="【中秋节】插月饼">【中秋节】插月饼</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】360安全卫士飙车追妹子游戏">【HTML5手机游戏下载】360安全卫士飙车追妹子游戏</a></li>
+						</ul>
+						<ul class="remen_muLeft">
+							<li><a href="" title="html5游戏，2017卡通足球赛！">html5游戏，2017卡通足球赛！</a></li>
+							<li><a href="" title="html5游戏，冲破霓虹屏障">html5游戏，冲破霓虹屏障</a></li>
+							<li><a href="" title="【h5游戏源码】弗莱迪的实验!">【h5游戏源码】弗莱迪的实验!</a></li>
+							<li><a href="" title="房卡麻将(亲测)+教程+工具，可运行！欢迎下载！">房卡麻将(亲测)+教程+工具，可运行！欢迎下载！</a></li>
+							<li><a href="" title="求大神帮忙解决报错4303的问题">求大神帮忙解决报错4303的问题</a></li>
+							<li><a href="" title="求大腿指点ajax请求成功后打开新页面被浏览器拦截">求大腿指点ajax请求成功后打开新页面被浏览器拦截</a></li>
+							<li><a href="" title="经典卡牌手游【魔兽传奇】Cocos2d游戏源码">经典卡牌手游【魔兽传奇】Cocos2d游戏源码</a></li>
+							<li><a href="" title="Cocos2d 彩色泡泡五子棋 源码">Cocos2d 彩色泡泡五子棋 源码</a></li>
+							<li><a href="" title="挑战飞行棋，童年经典游戏源码下载">挑战飞行棋，童年经典游戏源码下载</a></li>
+							<li><a href="" title="html5游戏，2017卡通足球赛！">html5游戏，2017卡通足球赛！</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="remen pai_pai">
+					<div class="kong fl"></div>
+					<h2>热门教程</h2>
+					<div class="pai_qw pai_qwfir">
+						<dl>
+							<dt>
+								<a href=""><img src="./imgs/pai_qw1.jpg"></a>
+								<a href="" title="【教程下载】HTML5移动应用开发入门经典">【教程下载】HTML5移动应用开发入门经典</a>
+							</dt>
+							<dd>【HTML5开发教程下载】HTML5移动应用开发入门经典，总共24章，每章一个小时学习时间，</dd>
+						</dl>
+					</div>
+					<div class="pai_qw">
+						<dl>
+							<dt>
+								<a href=""><img src="./imgs/pai_qw2.jpg"></a>
+								<a href="" title="【教程下载】HTML5与CSS3权威指南">【教程下载】HTML5与CSS3权威指南</a>
+							</dt>
+							<dd>《HTML 5与CSS 3权威指南》内容系统而全面，详尽地讲解了html 5和css 3的所有新功能和</dd>
+						</dl>
+					</div>
+					<div class="pai_qw">
+						<dl>
+							<dt>
+								<a href=""><img src="./imgs/pai_qw3.jpg"></a>
+								<a href="" title="【教程下载】HTML5游戏开发（全）">【教程下载】HTML5游戏开发（全）</a>
+							</dt>
+							<dd>【HTML5游戏开发（全）】本书分为9章。 学习如何绘制游戏对象、绘制动画、加入音频等</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="guanggao">
+					<table cellspacing="3">
+						<tr>
+							<td class="ggsm"><a href="">洛克菲洛中心</a></td>
+							<td colspan="2" rowspan="2"  class="ggbg"><a href="">选绿茶还是红茶</a></td>
+						</tr>
+						<tr>
+							<td  class="ggsm"><a href="">上海</a></td>
+
+						</tr>
+						<tr>
+							<td colspan="2" rowspan="2"  class="ggbg"><a href="">选绿茶还是红茶</a></td>
+							<td class="ggsm"><a href="">洛克菲洛中心</a></td>
+						</tr>
+						<tr>
+							<td  class="ggsm"><a href="">上海</a></td>
+						</tr>
+						<tr>
+							<td class="ggsm"><a href="">洛克菲洛中心</a></td>
+							<td colspan="2" rowspan="2"  class="ggbg"><a href="">选绿茶还是红茶</a></td>
+						</tr>
+						<tr>
+							<td  class="ggsm"><a href="">上海</a></td>
+
+						</tr>
+						<tr>
+							<td colspan="2" rowspan="2"  class="ggbg"><a href="">选绿茶还是红茶</a></td>
+							<td class="ggsm"><a href="">洛克菲洛中心</a></td>
+						</tr>
+						<tr>
+							<td  class="ggsm"><a href="">上海</a></td>
+						</tr>
+						<tr>
+							<td class="ggsm"><a href="">洛克菲洛中心</a></td>
+							<td colspan="2" rowspan="2"  class="ggbg"><a href="">选绿茶还是红茶</a></td>
+						</tr>
+						<tr>
+							<td  class="ggsm"><a href="">上海</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$("#fa").click(function(){
+			$("#comments").focus();
+		});
+		$("#btn_submit").click(function(){
+			var articleID=$("#articleID").val();
+			var comments=$("#comments").val();
+			var articleName=$("#articleName").val();
+			var u=$(".user_img").text();
+			var date=new Date();
+			var year=date.getFullYear();
+			var month=date.getMonth()+1;
+			var day=date.getDate();
+			var h=date.getHours();
+			var m=date.getMinutes();
+			var d=year+"-"+month+"-"+day+" "+h+":"+m
+			$.ajax({
+				url:'/article_sub',
+				method:'post',
+				data:{articleID:articleID,time:d,text_ar:comments,user:articleName,author:u},
+				success:function(msg){
+					var d=msg.id;
+					console.log(msg)
+					if(msg.ok==0){
+						window.location.href="/article_log?d="+d;	//点击评论没登录跳转到登录页
+					}else{
+					    //window.location.href='/article-285?id='+d;  //点击评论已登录跳转到当前页
+					    var s=msg.data;
+					    	var p="<div class='com_content'><p class='comp1'><span class='quo'><a href=''>引用</a></span><a href='' class='username'>"+s.author+ "</a><span class='com_time'> "+s.time+ "</span></p><p  class='comp2'>" +s.text_ar+ "</p></div>"
+					    $(".com_top").after(p);
+					    $("#comments").val('')
+
+
+
+					}
+				}
+			})
+		});
+
+
+	</script>
+	<!-- foot公共部分 -->
+	<% include foot.ejs %>
+	<!-- foot公共部分 -->

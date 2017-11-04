@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>蚂蚁资讯</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/base.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/article-285.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/article_log.css">
+</head>
+<body>
+	<!-- head公共部分 -->
+	<div class="header">
+		<div class="w header_B">
+			<div class="header_Bleft fl">
+				<a href="#">设为首页</a>
+				<a href="#">收藏本站</a>
+			</div>
+			<div class="header_Bright fr">
+				<div class="log_Z">
+					<a href="#" class="login">
+						请登录
+					</a>
+					<div class="log">
+						<p>用户名：</p>
+						<input type="text" name="" class="text">
+						<p>密码:<a href="" class="fr">忘记密码？</a></p>
+						<input type="password" name="" class="pass">
+							<div class="log1">
+								<input type="checkbox" name=""><span>下次自动登录</span>
+								<input type="button" name="" id="btn" value="立即登录">
+							</div>
+							<p  class=La_p><a href="">QQ账号登录</a></p>
+						</div>
+				</div>
+				<a href="/_reg" class="register">立即注册</a>
+				<a href="#" class="kuai"></a>
+			</div>
+		</div>
+	</div>
+	<div class="header_Top w">
+		<div class="H_top">
+			<div class="logo fl">
+				<a href="#"><img src="./imgs/logo.png"></a>
+			</div>
+			<div class="search fr">
+				<input class="sctext fl" type="text" name="" placeholder="请输入搜索内容">
+				<a href="#" class="scbar fl">帖子</a>
+				<input type="button" name="" class="scbtn fl">
+			</div>
+		</div>
+		<div class="nav">
+			<img class="nav_new" src="imgs/new.gif">
+			<img class="nav_hot" src="imgs/hot.gif">
+			<ul class="nav_U">
+			<% for(var i=0;i<f1.length;i++){ %>
+			<li>
+				<a href="/tiao?n=<%= f1[i].cname %>" title="<%= f1[i].title %>"><%= f1[i].cname %></a>
+				
+			</li>
+			<% } %>
+			
+		</ul>
+		</div>
+	</div>
+	<!-- head公共部分 -->
+    
+    <div class="con" style="width:500px;height:250px;text-align:center;margin:20px auto;border:3px solid #f1f1f1;padding:20px 0">
+    	<p class="nn">抱歉，您所在的用户组(游客)无法进行此操作</p>
+    	<form  method="post">
+    		<input type="hidden" name="fen_id" id="fen_id" value="<%= nid %>">
+    		<p class="nm"><span>用户名：</span><input type="text" name="text" id="text"><a href="/_reg?n=<%= nid %>">立即注册</a></p>
+    		<span class="user_prom"></span>		
+    		<p class="nm"><span>密码：  </span><input type="password" name="pass" id="pass"><a href="">找回密码</a></p>
+    		<span class="pass_prom"></span>
+    		<p class="nm"><input type="button" id="btn_sub" value="登录"></p>
+    	</form>
+    </div>
+    <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$("#btn_sub").click(function(){
+			var text=$("#text").val();
+			var pass=$("#pass").val();
+			var artid=$("#fen_id").val();
+
+			$.ajax({
+				url:"/get_log",
+				method:"post",
+				data:{t:text,p:pass,arn:artid},
+				success:function(msg){
+					console.log(msg.ok)
+					var n= msg.ok;
+					if(n==1){
+						if(msg.n){
+							window.location.href="/article-285?id="+msg.n;
+						}else{
+							window.location.href="/";
+						}
+						
+					}else if(n==2){
+						$(".user_prom").text("用户名错误").addClass("ac_red")
+					}else if(n==0){
+						$(".pass_prom").text("密码错误").addClass("ac_red")
+					}
+				}
+			})
+		})
+	</script>
+	<!-- foot公共部分 -->
+	<% include foot.ejs %>
+	<!-- foot公共部分 -->

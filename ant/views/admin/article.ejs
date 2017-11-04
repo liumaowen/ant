@@ -1,0 +1,130 @@
+ 
+<% include head.ejs %>
+
+<% include side.ejs %>
+<script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+
+<script src="/js/jqPaginator.js"></script>
+<style>
+.table td{
+	text-align: center;
+	width: 50px;
+	height: 50px;
+	overflow:hidden;
+	word-break:  normal;
+}
+.table td{
+	text-align:center;
+}
+img {
+	width: 68px;
+	height: 68px;
+}
+</style>
+<section class="Hui-article-box">
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+		<span class="c-gray en">&gt;</span>
+		资讯管理
+		<span class="c-gray en">&gt;</span>
+		资讯列表
+		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+	</nav>
+	<a class="btn btn-primary radius" data-title="添加资讯" _href="/admin/addarticle" onclick="article_add('添加资讯','/admin/addarticle')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加资讯</a>
+	<div class="mt-20">
+		<table total="<%= total_rows %>" class="table table-border table-bordered table-bg table-hover table-sort">
+			<thead>
+				<tr>
+					<th width="25"><input type="checkbox" name="" value=""></th>
+					<th width="80">ID</th>
+					<th>文章标题</th>
+					<th>作者</th>
+					<th width="80">文章类型</th>
+					<th width="80">缩略图</th>
+					<th width="120">发布时间</th>
+					<th width="75">文章摘要</th>
+					<th width="60">内容</th>
+					<th width="120">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+
+
+			</tbody>
+		</table>
+
+		<ul id="pagination1" class="pagination"></ul>
+	</div>
+</section>
+<script type="text/javascript">
+	function article_add(title,url,w,h){
+		var index = layer.open({
+			type: 2,
+			title: title,
+			content: url
+		});
+		layer.full(index);
+	};
+
+	$("#menu-article dt").addClass("selected");
+	$("#menu-article dd").show();
+
+	
+   var total=$(".table").attr('total');
+
+    $.jqPaginator('#pagination1', {
+        totalPages: total-0 ,
+        visiblePages: 5,
+        currentPage: 1,
+        first: '<li class="first"><a href="javascript:;">首页</a></li>',
+        prev: '<li class="prev"><a href="javascript:;">上一页</a></li>',
+        next: '<li class="next"><a href="javascript:;">下一页</a></li>',
+        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        last: '<li class="last"><a href="javascript:;">尾页</a></li>',
+        onPageChange: function (num, type) {
+           
+            $.ajax({
+                url: '/admin/getList',
+                type: 'post',
+                data: {page: num},
+                success: function (msg) {
+                    var message=msg.stu;
+                    // var html='';
+                    $("tbody").empty();
+                    for(var i= 0;i<message.length;i++){
+                     //    html+="<tr>";
+                    	// html+="<th width='25'><input type='checkbox'  ></th>";
+                     //    html+="<td>"+message[i].id+"</td>";
+                     //    html+="<td>"+message[i].title+"</td>";
+                     //    html+="<td>"+message[i].author+"</td>";
+                     //    html+="<td>"+message[i].cate+"</td>";
+                     //    html+="<td><img src='/upload/"+message[i].pic+"'/></td>"
+                     //    html+="<td>"+message[i].shijian+"</td>";
+                     //    html+="<td>"+message[i].summary+"</td>";		
+                     //    html+="<td>"+message[i].content+"</td>";
+                     //    html+="<td><a href=''>删除</a><a href=''>修改</a><a href=''>查询</a></td>";
+                     
+                     //    html+="</tr>" ;
+
+
+                        var t="<tr><th width='25'><input type='checkbox' >"+"</th><td>"+message[i].id+"</td><td>"+message[i].title+"</td><td>"+message[i].author+"</td><td>"+message[i].cate+"</td><td><img src='/upload/"+message[i].pic+"'/></td><td>"+message[i].shijian+"</td><td>"+message[i].summary+"</td><td>"+message[i].content+"</td><td>"+"<a href='/admin/delete?id="+message[i].id+"' >删除</a><a href='/admin/editor?id="+message[i].id+"'>编辑</a><a href=''>查询</a></td></tr>";
+                        $("tbody").append(t);
+                    };
+                     // $("tbody").html(html);
+                    
+
+                }
+            })
+
+        }
+    });
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+<%  include foot.ejs %>
+
+
+   
+
+
+
+
+

@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>蚂蚁社区</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/base.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
+</head>
+<body>
+	<div class="header">
+		<div class="w header_B">
+			<div class="header_Bleft fl">
+				<a href="#">设为首页</a>
+				<a href="#">收藏本站</a>
+			</div>
+			<div class="header_Bright fr">
+				<% if(log){ %>
+				<div class="log_Z">
+					
+					<a href="#" class="user_img login" style="float:left">
+						<%= islog.username %>
+					</a>
+				</div>
+				<a href="/logout" style="float:left;display:block;width: 41px;height: 45px;line-height:45px;border-right:1px solid #e5e5e5">注销</a>
+				<% }else{ %>	
+				<div class="log_Z">
+					<a href="#" class="login">
+						请登录
+					</a>
+					<div class="log">
+						<p>用户名：</p>
+						<input type="text" name="" class="text" id="username">
+						<p>密码:<a href="" class="fr">忘记密码？</a></p>
+						<input type="password" name="" class="pass" id=pass>
+						<div class="log1">
+							<input type="checkbox" name=""><span>下次自动登录</span>
+							<input type="button" name="" id="btn" value="立即登录">
+						</div>
+						<p  class=La_p><a href="">QQ账号登录</a></p>
+					</div>
+				</div>
+				<a href="/_reg" class="register">立即注册</a>
+				<% } %>
+				<a href="#" class="kuai"></a>
+			</div>
+		</div>
+	</div>
+	<div class="header_Top w">
+	<div class="HH_top">
+		<div class="H_top">
+			<div class="logo fl">
+				<a href="#"><img src="./imgs/logo.png"></a>
+			</div>
+			<div class="search fr">
+				<input class="sctext fl" type="text" name="" placeholder="请输入搜索内容">
+				<div class="stick">
+					<a href="javascript:;" class="scbar fl">帖子</a>
+					<ul class="stick1">
+						<li><a href="javascript:;">文章</a></li>
+						<li><a href="javascript:;">帖子</a></li>
+						<li><a href="javascript:;">用户</a></li>
+					</ul>
+				</div>
+				
+				<input type="button" name="" class="scbtn fl">
+			</div>
+		</div>
+	</div>
+	<div class="nav">
+		<img class="nav_new" src="imgs/new.gif">
+		<img class="nav_hot" src="imgs/hot.gif">
+		<ul class="nav_U">
+				<% for(var i=0;i<f1.length;i++){ %>
+				<li>
+					<a href="/tiao?n=<%= f1[i].cname %>" title="<%= f1[i].title %>"><%= f1[i].cname %></a>
+				</li>
+				<% } %>
+
+			</ul>
+	</div>
+</div>
+
+
+<div class="content w">
+		<div class="move">
+			<div class="move_1 fl">
+				<a class="move_1_P fl" href=""><img src="./imgs/spjc.png"></a>
+				<div class="move_1_R fl">
+					<a href="">HTML5视频教程下载</a>
+					<p>视频教程免蚂蚁币下载！</p>
+				</div>
+			</div>
+			<div class="move_1 fl">
+				<a class="move_1_P fl" href=""><img src="./imgs/ymhj.png"></a>
+				<div class="move_1_R fl">
+					<a href="">微信开发视频合集</a>
+					<p>包含系列视频教程，电子书以及对应的源码！</p>
+				</div>
+			</div>
+			<div class="move_1 fl">
+				<a class="move_1_P fl" href=""><img src="./imgs/jp.png"></a>
+				<div class="move_1_R fl">
+					<a href="">关注官方微信</a>
+					<p>赢取vip，奖励蚂蚁币！</p>
+				</div>
+			</div>
+			<div class="move_1 fl">
+				<a class="move_1_P fl" href=""><img src="./imgs/zhaopin.png"></a>
+				<div class="move_1_R fl">
+					<a href="">看好你哦！！！</a>
+					<p>蚂蚁HTML5社区诚邀您的加入！！！</p>
+				</div>
+			</div>
+		</div>
+		<div class="content_Z">
+			<div class="con_left fl">
+				<div class="lunbo">
+					<ul class="ulist">
+						<li><a href=""><img src="./imgs/lunbo1.jpg" alt=""></a></li>
+						<li><a href=""><img src="./imgs/lunbo2.jpg" alt=""></a></li>
+						<li><a href=""><img src="./imgs/lunbo3.jpg" alt=""></a></li>
+						<li><a href=""><img src="./imgs/lunbo4.jpg" alt=""></a></li>
+						<li><a href=""><img src="./imgs/lunbo5.jpg" alt=""></a></li>
+					</ul>
+					<ol class="olist">
+						<li class="acc">1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ol>
+					<span class="left"><</span>
+					<span class="right">></span>
+				</div>
+				<div class="wei">
+					<a href=""><img src="./imgs/weixinkaifa.png"></a>
+				</div>
+				<div class="con_leftbt">
+					<div class="kong fl"></div>
+					<h2>热点推荐</h2>
+					<div class="jiaocheng fr">
+						<a href="">>>CSS(CSS教程)在线教程</a>
+						<a href="">>>HTML(HTML5教程)在线教程</a>
+					</div>
+				</div>
+
+				<% for(var i=0;i<zx.length;i++){ %>
+				<div class="module">
+					<div class="module_L fl">
+						<a href="/article-285?id=<%= zx[i].id %>"><img src="./upload/<%= zx[i].pic %>" alt=""></a>
+					</div>
+					<div class="module_R fl">
+						<a class="modd" href="/article-285?id=<%= zx[i].id %>"><%= zx[i].title %></a>
+						<p><span><%= zx[i].summary %></span>[<a href="/article-285?id=<%= zx[i].id %>">详细</a>]</p>
+						<div class="ping">
+							<a class="ping1 fr" href="">评论</a>
+							<span class="ping1 fr">(1)</span>
+							<span class="ping1 fr">|</span>
+							<a class="ping1 fr" href="">查看</a>
+							<span class="ping1 fr">(22)</span>
+						</div>
+					</div>
+				</div>
+				<% } %>
+
+				<div class="geng">
+					<a href="">更多精彩</a>
+				</div>
+			</div>
+			<div class="con_right fr">
+				<div class="portal">
+					<dl class="portal_1">
+						<dt><a href="" title="欢度国庆/中秋：程序员，最重要的就是开心啦！">欢度国庆/中秋：程序员，最</a></dt>
+						<dd>欢度国庆/中秋：程序员，最重要的就是开心啦，送您一本装逼大法！</dd>
+					</dl>
+					<dl class="portal_1">
+						<dt><a href="" title="微信新升级，准备拳打阿里、脚踢百度了">微信新升级，准备拳打阿里、</a></dt>
+						<dd>微信准备拳打阿里、脚踢百度了——在昨天微信ios更新的6.5.8版本中，很多人闻到这样的</dd>
+					</dl>
+					<dl class="portal_1">
+						<dt><a href="" title="一名合格的前端工程师的知识">一名合格的前端工程师的知识</a></dt>
+						<dd>前端工程师，也叫web前端开发工程师。他是随着web的发展，细分出来的行业。</dd>
+					</dl>
+					<dl class="portal_1 portal_last">
+						<dd class="portal_fir"><a href="""><img src="./imgs/portal_last.jpg"></a></dd>
+						<dt>
+							{<a href="">微信开发交流</a>}
+							<a href="" title="【微信运营】从零开始做公众号攻略文档教程">【微信运营】从零开始做公众号攻略文档教程</a>
+						</dt>
+						<dd>**** 本内容被作者隐藏 ****</dd>
+					</dl>
+				</div>
+				<div class="vip"><a href=""><img src="./imgs/vip_pic.png" alt=""></a></div>
+                <div class="area">
+                	<ul>
+                		<li><a href="" title="25岁毕业，拿一万块钱月薪">25岁毕业，拿一万块钱月薪</a></li>
+                		<li><a href="" title="【精华】我这几年的前端面试经历！">【精华】我这几年的前端面试经历！</a></li>
+                		<li><a href="" title="一位阿里员工的离职总结：如何在大公司生存">一位阿里员工的离职总结：如何在大</a></li>
+                	</ul>
+                </div>
+				<div class="pai">
+					<div class="kong fl"></div>
+					<h2>下载排行榜</h2>
+					<ul class="pai_ul">
+						<li class="fl act"><a href="">模板排行榜</a></li>
+						<li class="fl"><a href="">游戏排行榜</a></li>
+					</ul>
+					<div class="pai_mu">
+						<ul class="pai_muLeft">
+							<li>[<a href="" title="HTML5手机模板">HTML5手机模板</a>]<a href="" title="HTML5手机摇一摇抽奖活动页面">HTML5手机摇一摇抽奖活</a></li>
+							<li>[<a href="" title="HTML5手机模板">HTML5手机模板</a>]<a href="" title="HTML5触屏滑动效果,公司招聘专题页面">HTML5触屏滑动效果,公司招聘专题页面</a></li>
+							<li>[<a href="" title="HTML5手机模板">HTML5手机模板</a>]<a href="" title="WAP手机版问卷调查页面模板下载">WAP手机版问卷调查页面模板下载</a></li>
+							<li>[<a href="" title="HTML5手机模板">HTML5手机模板</a>]<a href="" title="HTML5手机专题页面触屏滑动上下翻页特效(微商面膜)！">HTML5手机专题页面触屏滑动上下翻页特效(微商面膜)！</a></li>
+							<li>[<a href="" title="HTML5手机模板">HTML5手机模板</a>]<a href="" title="微信酒店房间预订系统手机HTML5网页模板">微信酒店房间预订系统手机HTML5网页模板</a></li>
+							<li>[<a href="" title="HTML5手机模板">HTML5手机模板</a>]<a href="" title="HTML5响应式布局bootstrap网站模板">HTML5响应式布局bootstrap网站模板</a></li>
+							<li>[<a href="" title="HTML5手机模板">HTML5手机模板</a>]<a href="" title="仿一起惠返利网·触摸版">仿一起惠返利网·触摸版</a></li>
+							<li>[<a href="" title="HTML5手机模板">HTML5手机模板</a>]<a href="" title="C2C美甲手机电商网站源码">C2C美甲手机电商网站源码</a></li>
+							<li>[<a href="" title="HTML5手机模板">HTML5手机模板</a>]<a href="" title="企业HTML5手机网站通用模板带内页wap网站">企业HTML5手机网站通用模板带内页wap网站</a></li>
+						</ul>
+						<ul class="pai_muLeft">
+							<li><a href="" title="【HTML5手机游戏下载】微信红包整人之愚人节快乐">【HTML5手机游戏下载】微信红包整人之愚人节快乐</a></li>
+							<li><a href="" title="【HTML5手机游戏源码下载】开心消消乐！！！">【HTML5手机游戏源码下载】开心消消乐</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】数钱数到手抽筋！">【HTML5手机游戏下载】数钱数到手抽筋！</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】js HTML5编码生成 网页版捕鱼达人游戏">【HTML5手机游戏下载】js HTML5编码生成 网页版捕鱼达人游戏</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】中秋节H5游戏，进击的兔子">【HTML5手机游戏下载】中秋节H5游戏，进击的兔子</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】中秋节博饼游戏">【HTML5手机游戏下载】中秋节博饼游戏</a></li>
+							<li><a href="" title="【中秋节】插月饼">【中秋节】插月饼</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】360安全卫士飙车追妹子游戏">【HTML5手机游戏下载】360安全卫士飙车追妹子游戏</a></li>
+							<li><a href="" title="【HTML5手机游戏下载】胸口碎大石！">【HTML5手机游戏下载】胸口碎大石！</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="pai pai_sec">
+					<div class="kong fl"></div>
+					<h2>探索HTML5·创事记</h2>
+					<div class="lunbo_Sm">
+						<ul class="Sm_ulist">
+							<li><a href=""><img src="./imgs/lunbo_Sm1.jpg" alt=""></a></li>
+							<li><a href=""><img src="./imgs/lunbo_Sm2.jpg" alt=""></a></li>
+							<li><a href=""><img src="./imgs/lunbo_Sm3.jpg" alt=""></a></li>
+							<li><a href=""><img src="./imgs/lunbo_Sm4.jpg" alt=""></a></li>
+							<li><a href=""><img src="./imgs/lunbo_Sm5.jpg" alt=""></a></li>
+						</ul>
+						<ol class="Sm_olist">
+							
+						</ol>
+					</div>
+				</div>
+				<div class="pai pai_thr">
+					<div class="kong fl"></div>
+					<h2>精彩专题</h2>
+					<dl class="jingcai">
+						<dd class=jingcai_DD><a href=""><img src="./imgs/jingcai1.png" width="60" height="60" alt=""></a></dd>
+						<dt><a href="" title="挑战高智商HTML5小游戏">挑战高智商HTML5小游戏...</a></dt>
+						<dd class=jingcai_LA>微信HTML5游戏合集，高智商开源小游戏。适合个人和商业使用！</dd>
+					</dl>
+					<dl class="jingcai">
+						<dd class=jingcai_DD><a href=""><img src="./imgs/jingcai2.png" width="60" height="60" alt=""></a></dd>
+						<dt><a href="" title="挑战高智商HTML5小游戏">挑战高智商HTML5小游戏...</a></dt>
+						<dd class=jingcai_LA>微信HTML5游戏合集，高智商开源小游戏。适合个人和商业使用！</dd>
+					</dl>
+					<dl class="jingcai">
+						<dd class=jingcai_DD><a href=""><img src="./imgs/jingcai3.jpg" width="60" height="60" alt=""></a></dd>
+						<dt><a href="" title="挑战高智商HTML5小游戏">挑战高智商HTML5小游戏...</a></dt>
+						<dd class=jingcai_LA>微信HTML5游戏合集，高智商开源小游戏。适合个人和商业使用！</dd>
+					</dl>
+				</div>
+				<div class="pai pai_for">
+					<div class="kong fl"></div>
+					<h2>热门图片</h2>
+					<div class="repic">
+						<ul>
+							<li>
+								<a href=""><img src="./imgs/repic1.jpg" alt="微信摇一摇抽奖模板开发源码下载！" width="135" height="135"></a>
+								<p><a href="" title="微信摇一摇抽奖模板开发源码下载！">微信摇一摇抽奖模板开发源码下载！</a></p>
+							</li>
+							<li>
+								<a href=""><img src="./imgs/repic2.jpg" alt="HTML5全套视频教程免蚂蚁币下载" width="135" height="135"></a>
+								<p><a href="" title="HTML5全套视频教程免蚂蚁币下载">HTML5全套视频教程免蚂蚁币下载</a></p>
+							</li>
+							<li>
+								<a href=""><img src="./imgs/repic3.jpg" alt="简单实用的纯CSS百分比圆形进度条源码！" width="135" height="135"></a>
+								<p><a href="" title="简单实用的纯CSS百分比圆形进度条源码！">简单实用的纯CSS百分比圆形进度条源码！</a></p>
+							</li>
+							<li>
+								<a href=""><img src="./imgs/repic4.jpg" alt="HTML5 坦克后援队游戏源码下载！" width="135" height="135"></a>
+								<p><a href="" title="HTML5 坦克后援队游戏源码下载！">HTML5 坦克后援队游戏源码下载！</a></p>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="pai">
+					<div class="kong fl"></div>
+					<h2>论坛BBS</h2>
+					<ul class="pai_ul">
+						<li class="fl act"><a href="">最新发布</a></li>
+						<li class="fl"><a href="">最新回复</a></li>
+					</ul>
+					<div class="pai_mu">
+						<ul class="pai_muLeft paimu_mu">
+							<li><a href="" title="挑战飞行棋，童年经典游戏源码下载">挑战飞行棋，童年经典游戏源码下载</a></li>
+							<li><a href="" title="Cocos2d 彩色泡泡五子棋 源码">Cocos2d 彩色泡泡五子棋 源码</a></li>
+							<li><a href="" title="房卡麻将(亲测)+教程+工具，可运行！欢迎下载！!">房卡麻将(亲测)+教程+工具，可运行！欢迎下载！!</a></li>
+							<li><a href="" title="经典卡牌手游【魔兽传奇】Cocos2d游戏源码">经典卡牌手游【魔兽传奇】Cocos2d游戏源码</a></li>
+							<li><a href="" title="Unity3D Adventure（冒险）游戏 源码下载">Unity3D Adventure（冒险）游戏 源码下载</a></li>
+							<li><a href="" title="【h5游戏源码】弗莱迪的实验">【h5游戏源码】弗莱迪的实验</a></li>
+							<li><a href="" title="防生鲜超市农产品网站整站源码，PC+WAP+微信分销商城，微信支付+短信功能等等">防生鲜超市农产品网站整站源码，PC+WAP+微信分销商城，微信支付+短信功能等等</a></li>
+							<li><a href="" title="求大腿指点ajax请求成功后打开新页面被浏览器拦截">求大腿指点ajax请求成功后打开新页面被浏览器拦截</a></li>
+							<li><a href="" title="搞棋牌的看过来!">搞棋牌的看过来!</a></li>
+						</ul>
+						<ul class="pai_muLeft paimu_mu">
+							<li><a href="" title="挑战飞行棋，童年经典游戏源码下载">挑战飞行棋，童年经典游戏源码下载</a></li>
+							<li><a href="" title="钱，钱，钱，赚钱小游戏！">钱，钱，钱，赚钱小游戏！</a></li>
+							<li><a href="" title="求大神帮忙解决报错4303的问题!">求大神帮忙解决报错4303的问题!</a></li>
+							<li><a href="" title="html5游戏，2017卡通足球赛！">html5游戏，2017卡通足球赛！</a></li>
+							<li><a href="" title="html5游戏，冲破霓虹屏障">html5游戏，冲破霓虹屏障</a></li>
+							<li><a href="" title="房卡麻将(亲测)+教程+工具，可运行！欢迎下载！">房卡麻将(亲测)+教程+工具，可运行！欢迎下载！</a></li>
+							<li><a href="" title="求大腿指点ajax请求成功后打开新页面被浏览器拦截">求大腿指点ajax请求成功后打开新页面被浏览器拦截</a></li>
+							<li><a href="" title="Cocos2d 彩色泡泡五子棋 源码">Cocos2d 彩色泡泡五子棋 源码</a></li>
+							<li><a href="" title="打飞机大战 HTML5下载">打飞机大战 HTML5下载</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="pai pai_fiv">
+					<div class="kong fl"></div>
+					<h2>H5游戏-Cocos2d</h2>
+					<ul>
+						<li><a href="" title="湖南房卡麻将客户端/服务器端完整源码及编译教程">湖南房卡麻将客户端/服务器端完整源码及编</a></li>
+						<li><a href="" title="《全民挂机》客户端源码 + 服务端源码 + 全套完整资源">《全民挂机》客户端源码 + 服务端源码 + 全</a></li>
+						<li><a href="" title="cocos2d-x 3.x版本的泡泡龙 全部源码下载！！！">cocos2d-x 3.x版本的泡泡龙 全部源码下载！</a></li>
+						<li><a href="" title="cocos2dx休闲三消、rpg类游戏《魔力女孩2》源码">cocos2dx休闲三消、rpg类游戏《魔力女孩2》</a></li>
+						<li><a href="" title="知名德州扑克手游客户端源码+服务端+数据库！！！">知名德州扑克手游客户端源码+服务端+数据库</a></li>
+					</ul>
+				</div>
+				<div class="pai pai_fiv">
+					<div class="kong fl"></div>
+					<h2>H5游戏-Egret</h2>
+					<ul>
+						<li><a href="" title="白鹭引擎开发的html5游戏（密室逃生，含源码）">白鹭引擎开发的html5游戏（密室逃生，含源</a></li>
+						<li><a href="" title="果蔬达人<源码下载>">果蔬达人<源码下载></a></li>
+						<li><a href="" title="coco贪吃蛇小游戏，附源码下载！">贪吃蛇小游戏，附源码下载！</a></li>
+						<li><a href="" title="重力感应的最终解答--平衡小球">重力感应的最终解答--平衡小球</a></li>
+						<li><a href="" title="判断用户是通过手机浏览还是电脑浏览代码！">判断用户是通过手机浏览还是电脑浏览代码！</a></li>
+					</ul>
+				</div>
+				<div class="jiangshi">
+					<a href=""><img src="./imgs/jiangshi.jpg" alt=""></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<div class="youqing w">
+	<div class="youlian_L fl"><h2>友情链接</h2></div>
+	<div class="youlian_R fl">
+		<ul>
+			<li><a href="">蚂蚁HTML5论坛</a></li>
+			<li><a href="">蚂蚁社区教程</a></li>
+			<li><a href="">app推广</a></li>
+			<li><a href="">移动新媒体网</a></li>
+			<li><a href="">web开发分享</a></li>
+			<li><a href="">程序员之家</a></li>
+			<li><a href="">H5</a></li>
+			<li><a href="">天码营</a></li>
+			<li><a href="">问津专家营</a></li>
+			<li><a href="">源码社区</a></li>
+			<li><a href="">7724游戏</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$("#btn").click(function(){
+		var t1=$("#username").val();
+		var p1=$("#pass").val();
+		$.ajax({
+			url:"/get_log",
+			method:"post",
+			data:{t:t1,p:p1},
+			success:function(msg){
+				if(msg.ok){	
+				window.location.href="/"
+				}
+			}
+		})
+	})
+</script>
+<% include foot.ejs %>	

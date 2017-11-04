@@ -1,0 +1,82 @@
+<link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+<script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/ueditor/ueditor.config.js"></script> 
+<script type="text/javascript" src="/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+<article class="page-container">
+	<form class="form form-horizontal" id="form-article-add">
+		
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>发布时间：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="sj" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>发布者：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="author" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>articleID:</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="articleID" name="">
+			</div>
+		</div>
+		
+		
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">内容：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<script type="text/plain" style="height:400px;width:980px" name="content"   id="container" ></script>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
+			</div>
+		</div>
+	</form>
+</article>
+
+
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/lib/My97DatePicker/4.8/WdatePicker.js"></script>  
+<script type="text/javascript" src="/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.page.js"></script>
+
+
+
+<script type="text/javascript">
+
+var ue=UE.getEditor('container');
+function article_save_submit(){
+
+	var t=$("#sj").val();
+	var a=$("#author").val();
+	var articleID=$("#articleID").val();
+	var html=ue.getContent();
+	$.ajax({
+			url: '/admin/insertCom',
+			method: 'POST',
+			data:{sj:t,zz:a,aID:articleID,content:html},
+		    success:function(msg) {
+		  	console.log(msg)
+		  	if(msg.a){
+		  	 window.location.href="/admin/comments";
+		  	 }else{
+		  		alert("输入有误，请重新输入")
+		  	 }
+		    }
+		})  
+}
+</script>
+<!--/请在上方写此页面业务相关的脚本-->

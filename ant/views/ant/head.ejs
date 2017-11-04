@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>蚂蚁社区</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/base.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/article-285.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/news.css">
+	<!-- <script type="text/javascript" src="./js/jqPaginator.js"></script> -->
+</head>
+<body>
+	<div class="header">
+		<div class="w header_B">
+			<div class="header_Bleft fl">
+				<a href="#">设为首页</a>
+				<a href="#">收藏本站</a>
+			</div>
+			<div class="header_Bright fr">
+				<% if(log){ %>
+				<div class="log_Z">
+					
+					<a href="#" class="user_img login" style="float:left">
+						<%= islog.username %>
+					</a>
+				</div>
+				<a href="/logout" style="float:left;display:block;width: 41px;height: 45px;line-height:45px;border-right:1px solid #e5e5e5">注销</a>
+				<% }else{ %>	
+				<div class="log_Z">
+					<a href="#" class="login">
+						请登录
+					</a>
+					<div class="log">
+						<p>用户名：</p>
+						<input type="text" name="" class="text" id="username">
+						<p>密码:<a href="" class="fr">忘记密码？</a></p>
+						<input type="password" name="" class="pass" id=pass>
+						<div class="log1">
+							<input type="checkbox" name=""><span>下次自动登录</span>
+							<input type="button" name="" id="btn" value="立即登录">
+						</div>
+						<p  class=La_p><a href="">QQ账号登录</a></p>
+					</div>
+				</div>
+				<a href="/_reg" class="register">立即注册</a>
+				<% } %>
+				<a href="#" class="kuai"></a>
+			</div>
+		</div>
+	</div>
+	<div class="header_Top w">
+	<div class="HH_top">
+		<div class="H_top">
+			<div class="logo fl">
+				<a href="#"><img src="./imgs/logo.png"></a>
+			</div>
+			<div class="search fr">
+				<input class="sctext fl" type="text" name="" placeholder="请输入搜索内容">
+				<div class="stick">
+					<a href="javascript:;" class="scbar fl">帖子</a>
+					<ul class="stick1">
+						<li><a href="javascript:;">文章</a></li>
+						<li><a href="javascript:;">帖子</a></li>
+						<li><a href="javascript:;">用户</a></li>
+					</ul>
+				</div>
+				
+				<input type="button" name="" class="scbtn fl">
+			</div>
+		</div>
+	</div>
+	<div class="nav">
+		<img class="nav_new" src="imgs/new.gif">
+		<img class="nav_hot" src="imgs/hot.gif">
+		<ul class="nav_U">
+				<% for(var i=0;i<f1.length;i++){ %>
+				<li <% if(f1[i].cname ==fen) {%> class="act_blu"    <% } %>  >
+					<a href="/tiao?n=<%= f1[i].cname %>" title="<%= f1[i].title %>"><%= f1[i].cname %></a>
+				</li>
+				<% } %>
+
+			</ul>
+	</div>
+</div>

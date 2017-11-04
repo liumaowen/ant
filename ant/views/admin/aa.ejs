@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<form id="uploadForm" enctype="multipart/form-data">
+		<input type="file" name="file" id="file">
+		<button id="upload" type="button">upload</button>
+	</form>
+	<!-- 第二种方法 -->
+	<!-- <div id="uploadForm">
+		<input type="file" id="file" multiple>
+		<button type="button" id="upload">upload</button>
+	</div> -->
+
+	<script type="text/javascript">
+		$("#upload").click(function(){
+			// var formData=new FormData();
+			// formData.append('file',$('#file')[0].files[0]);
+			// $.ajax({
+			// 	url:'/upload',
+			// 	type:'post',
+			// 	cache:false,
+			// 	data:formData,
+			// 	processData:false,
+			// 	contentType:false
+			// }).done(function(res){}).fail(function(res){});
+			// console.log(formData)
+
+			// 第二种方法
+			$.ajax({
+				url:'/upload',
+				type:'post',
+				cache:false,
+				data:new FormData($("#uploadForm")[0]),
+				processData:false,
+				contentType:false
+			}).done(function(res){
+				// console.log(res)
+			}).fail(function(res){})
+		})
+	</script>
+</body>
+</html>

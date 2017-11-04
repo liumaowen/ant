@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>蚂蚁资讯</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/base.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/article_reg.css">
+</head>
+<body>
+	<!-- head公共部分 -->
+	<div class="header">
+		<div class="w header_B">
+			<div class="header_Bleft fl">
+				<a href="#">设为首页</a>
+				<a href="#">收藏本站</a>
+			</div>
+			<div class="header_Bright fr">
+				<div class="log_Z">
+					<a href="#" class="login">
+						请登录
+					</a>
+					<div class="log">
+						<p>用户名：</p>
+						<input type="text" name="" class="text">
+						<p>密码:<a href="" class="fr">忘记密码？</a></p>
+						<input type="password" name="" class="pass">
+							<div class="log1">
+								<input type="checkbox" name=""><span>下次自动登录</span>
+								<input type="button" name="" id="btn" value="立即登录">
+							</div>
+							<p  class=La_p><a href="">QQ账号登录</a></p>
+						</div>
+				</div>
+				<a href="/_reg" class="register">立即注册</a>
+				<a href="#" class="kuai"></a>
+			</div>
+		</div>
+	</div>
+	<div class="header_Top w">
+		<div class="H_top">
+			<div class="logo fl">
+				<a href="#"><img src="./imgs/logo.png"></a>
+			</div>
+			<div class="search fr">
+				<input class="sctext fl" type="text" name="" placeholder="请输入搜索内容">
+				<a href="#" class="scbar fl">帖子</a>
+				<input type="button" name="" class="scbtn fl">
+			</div>
+		</div>
+		<div class="nav">
+			<img class="nav_new" src="imgs/new.gif">
+			<img class="nav_hot" src="imgs/hot.gif">
+			<ul class="nav_U">
+			<% for(var i=0;i<f1.length;i++){ %>
+			<li>
+				<a href="/tiao?n=<%= f1[i].cname %>" title="<%= f1[i].title %>"><%= f1[i].cname %></a>
+				
+			</li>
+			<% } %>
+			
+		</ul>
+		</div>
+	</div>
+	<!-- head公共部分 -->
+    
+    <div class="con" style="width:800px;height:300px;margin:20px auto;line-height:55px;border:3px solid #f1f1f1;padding:20px 0">
+    	<form  method="post">
+    		<input type="hidden" name="fen_id" id="fen_id" value="<%= nid %>">
+    		<p class="nm"><span class="sp">用户名：</span><input type="text" name="text" id="text"><span class="s1"></span></p>
+    		<p class="nm"><span class="sp">密码：</span><input type="password" name="pass" id="pass"><span class="s2"></span></p>
+    		<p class="nm"><span class="sp">确认密码：</span><input type="password" name="passcom" id="passcom"><span class="s3"></span></p>
+    		<p class="nm1"><input type="button" id="btn_sub" value="注册"></p>
+    	</form>
+    </div>
+    <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$("#btn_sub").click(function(){
+			var text=$("#text").val();
+			var pass=$("#pass").val();
+			var artid=$("#fen_id").val();
+
+			$.ajax({
+				url:"/get_reg",
+				method:"post",
+				data:{t:text,p:pass,arn:artid},
+				success:function(msg){
+					var n1= msg.ok;
+					if(n1==1){
+						window.location.href="/article_log?d="+msg.n;
+					}
+				}
+			})
+		});
+		$(".s1").text("用户名由 3 到 15 个字符组成");//默认
+		$(".s1").css({"color":"#666"});
+		$("#text").on("focus",function(){
+			$(".s1").text("用户名由 3 到 15 个字符组成");
+			$(".s1").css({"color":"#666"});
+			$(this).removeClass("acr")
+		});
+		$("#text").on("blur",function(){
+			$(".s1").text("用户名不得小于 3 个字符");
+			$(".s1").css({"color":"red"});
+			$(this).addClass("acr");
+		});
+		$("#pass").on("focus",function(){
+			$(".s2").text("请填写密码, 最小长度为 6 个字符");
+			$(".s2").css({"color":"#666"});
+			$(this).removeClass("acr")
+		});
+		$("#pass").on("blur",function(){
+			$(".s2").text("请填写密码, 最小长度为 6 个字符");
+			$(".s2").css({"color":"red"});
+			$(this).addClass("acr");
+		})
+		$("#passcom").on("focus",function(){
+			$(".s3").text("请再次输入密码");
+			$(".s3").css({"color":"#666"});
+			$(this).removeClass("acr")
+		});
+		$("#passcom").on("blur",function(){
+			$(".s3").text("请再次输入密码");
+			$(".s3").css({"color":"red"});
+			$(this).addClass("acr");
+		})
+	</script>
+	<!-- foot公共部分 -->
+	<% include foot.ejs %>
+	<!-- foot公共部分 -->
