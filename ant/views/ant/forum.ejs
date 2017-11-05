@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>蚂蚁社区</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/base.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheets/forum.css">
+</head>
+<body>
+	<div class="header">
+		<div class="w header_B">
+			<div class="header_Bleft fl">
+				<a href="#">设为首页</a>
+				<a href="#">收藏本站</a>
+			</div>
+			<div class="header_Bright fr">
+				<% if(log){ %>
+				<div class="log_Z">
+					
+					<a href="#" class="user_img login" style="float:left">
+						<%= islog.username %>
+					</a>
+				</div>
+				<a href="/logout" style="float:left;display:block;width: 41px;height: 45px;line-height:45px;border-right:1px solid #e5e5e5">注销</a>
+				<% }else{ %>	
+				<div class="log_Z">
+					<a href="#" class="login">
+						请登录
+					</a>
+					<div class="log">
+						<p>用户名：</p>
+						<input type="text" name="" class="text" id="username">
+						<p>密码:<a href="" class="fr">忘记密码？</a></p>
+						<input type="password" name="" class="pass" id=pass>
+						<div class="log1">
+							<input type="checkbox" name=""><span>下次自动登录</span>
+							<input type="button" name="" id="btn" value="立即登录">
+						</div>
+						<p  class=La_p><a href="">QQ账号登录</a></p>
+					</div>
+				</div>
+				<a href="/_reg" class="register">立即注册</a>
+				<% } %>
+				<a href="#" class="kuai"></a>
+			</div>
+		</div>
+	</div>
+	<div class="header_Top w">
+		<div class="HH_top">
+			<div class="H_top">
+				<div class="logo fl">
+					<a href="#"><img src="./imgs/logo.png"></a>
+				</div>
+				<div class="search fr">
+					<input class="sctext fl" type="text" name="" placeholder="请输入搜索内容">
+					<div class="stick">
+						<a href="javascript:;" class="scbar fl">帖子</a>
+						<ul class="stick1">
+							<li><a href="javascript:;">文章</a></li>
+							<li><a href="javascript:;">帖子</a></li>
+							<li><a href="javascript:;">用户</a></li>
+						</ul>
+					</div>
+
+					<input type="button" name="" class="scbtn fl">
+				</div>
+			</div>
+		</div>
+		<div class="nav">
+			<img class="nav_new" src="imgs/new.gif">
+			<img class="nav_hot" src="imgs/hot.gif">
+			<ul class="nav_U">
+				<% for(var i=0;i<f1.length;i++){ %>
+				<li>
+					<a href="/tiao?n=<%= f1[i].cname %>" title="<%= f1[i].title %>"><%= f1[i].cname %></a>
+				</li>
+				<% } %>
+
+			</ul>
+		</div>
+	</div>
+	<div class="content w">
+		<div class="content_Z">
+			<div class="con_Ltop">
+				<a href="/" class="shou"></a>
+				<span class="con_Ltop_sp">></span>
+				<a class="shou1" href="/bbs">论坛</a>
+				<span class="con_Ltop_sp">></span>
+				<a class="shou1 shou2" href=""><%= tz[0].bcate %></a>
+				<span class="con_Ltop_sp">></span>
+				<%= tz[0].zcate %>	
+			</div>
+		    <img src="./imgs/html5.jpg">
+		    <div class="tm_h">
+		    	<div class="tm_h-1 fl">
+		    		<h3>html5技术交流</h3>
+		    		<span>今日: 1 |主题: 362|排名: 10 </span>
+		    	</div>
+		    	<div class="tm_h-1 fr">
+		    		<span class="tm_h-2_1">收藏本版(5)</span>
+		    		<span class="tm_h-2_1">订阅</span>
+		    		<img src="./imgs/collapsed_no.gif">
+		    	</div>
+		    </div>
+		    <div class="tm_ptn">
+		    	<strong><font color="red">大神介绍：网名_大神神码</font></strong><br><br>
+
+		    	&.我是一个热爱生活的人儿！&.本人很低调！&.本人还是有很多的缺点的！&.对敲代码有点特殊爱好.....<br><br>
+
+		    	&.有什么问题，可以加群362664990找我，本人不加好友，基本不在线？<br><br>
+
+		    	站长PS:此位大神现就职于一家知名互联网公司。<br>
+		    	↓↓↓↓↓↓↓↓<br>
+		    	》》
+		    	<a href=""><strong><font color="red">HTML5在线参考手册</font></strong></a>
+		    </div>
+		    <div class="tm_pgt">
+		    	<a class="tm_pa" href=""></a>
+		    </div>
+		    <ul class="tm_tp">
+		    	<li><a href="">全部</a></li>
+		    	<li><a href="">技术交流<span>190</span></a></li>
+		    	<li><a href="">HTML5游戏教程<span>32</span></a></li>
+		    	<li><a href="">业内观点<span>38</span></a></li>
+		    	<li><a href="">答疑解惑<span>46</span></a></li>
+		    	<li><a href="">HTML5动画<span>17</span></a></li>
+		    	<li><a href="">HTML5模板<span>33</span></a></li>
+		    	<li><a href="">音频视频播放器<span>5</span></a></li>
+		    </ul>
+		    <div class="thearlist">
+		    	<div class="th">
+		    		<table cellpadding="0" cellspacing="0">
+		    			<tr>
+		    				<td class="th_1">
+		    					<a href="">全部主题</a>
+		    					<a href="">最新</a>
+		    					<a href="">热门</a>
+		    					<a href="">热帖</a>
+		    					<a href="">精华</a>
+		    					<a href="">更多</a>
+		    				</td>
+		    				<td class="th_2">
+		    					<input type="checkbox" name="">
+		    					<a href="">新窗</a>作者
+		    				</td>
+		    				<td class="th_3">回复/查看&nbsp;&nbsp;&nbsp;最后发表</td>
+		    			</tr>
+		    		</table>
+		    	</div>
+		    	<table cellpadding="0" cellspacing="0" class="th_z">
+		    		<tr>
+		    			<td class="icon">
+		    				<img src="./imgs/ann_icon.gif">
+		    			</td>
+		    			<td class="new_title">公告：
+		    				<a href="">html5游戏，棒打疯猫开放源码下载！</a>
+		    			</td>
+		    			<td class="by">
+		    				<p><a href="">蚂蚁HTML5</a></p>
+		    				<p>2015-9-24</p>
+		    			</td>
+		    			<td class="num">
+		    				<p><a href="">138</a></p>
+		    				<p>15191</p>
+		    			</td>
+		    			<td class="by">
+		    				<p><a href="">bonly</a></p>
+		    				<p><a href="">2017-10-25 10:23</a></p>
+		    			</td>
+		    		</tr>
+		    		<tr>
+		    			<td class="icon">
+		    				<img src="./imgs/pin_3.gif">
+		    			</td>
+		    			<td class="new_title">
+		    				<a href="">加入蚂蚁社区VIP，下载您喜欢的源码，学习您喜欢的教程！</a>
+		    			</td>
+		    			<td class="by">
+		    				<p><a href="">蚂蚁HTML5</a></p>
+		    				<p>2015-9-24</p>
+		    			</td>
+		    			<td class="num">
+		    				<p><a href="">138</a></p>
+		    				<p>15191</p>
+		    			</td>
+		    			<td class="by">
+		    				<p><a href="">bonly</a></p>
+		    				<p><a href="">2017-10-25 10:23</a></p>
+		    			</td>
+		    		</tr>
+		    		<tr>
+		    			<td class="icon">
+		    				<img src="./imgs/pin_1.gif">
+		    			</td>
+		    			<td class="new_title">[<a href="" class="xiao_title">技术交流</a>]
+		    				<a href="">HTML5全套视频教程免蚂蚁币下载</a>
+		    			</td>
+		    			<td class="by">
+		    				<p><a href="">蚂蚁HTML5</a></p>
+		    				<p>2015-9-24</p>
+		    			</td>
+		    			<td class="num">
+		    				<p><a href="">138</a></p>
+		    				<p>15191</p>
+		    			</td>
+		    			<td class="by">
+		    				<p><a href="">bonly</a></p>
+		    				<p><a href="">2017-10-25 10:23</a></p>
+		    			</td>
+		    		</tr>
+		    		<tr class="line">
+		    			<td></td>
+		    			<td class="new_title"><a href="">版块主题</a></td>
+		    			<td></td><td></td><td></td>
+		    		</tr>
+		    		<% for(var i=0;i<tz.length;i++){ %>
+		    		<tr class="tr_z">
+		    			<td class="icon">
+		    				<img src="./imgs/folder_new.gif">
+		    			</td>
+		    			<td class="new_title">[<a href="" class="xiao_title"><%= tz[i].cate %></a>]
+		    				<a href="/thread?id=<%= tz[i].id %>" target="_bank"><%= tz[i].title %></a>
+		    			</td>
+		    			<td class="by">
+		    				<p><a href=""><%= tz[i].author %></a></p>
+		    				<p><%= tz[i].ptime %></p>
+		    			</td>
+		    			<td class="num">
+		    				<p><a href="">138</a></p>
+		    				<p>15191</p>
+		    			</td>
+		    			<td class="by">
+		    				<p><a href="">bonly</a></p>
+		    				<p><a href="">2017-10-25 10:23</a></p>
+		    			</td>
+		    		</tr>
+		    		<% } %>
+		    		
+		    	</table>
+		    </div>
+	    	<a href="#" class="nextpager">下一页  »</a>
+	    	<div class="tm_pgt">
+	    		<a class="tm_pa" href=""></a>
+	    	</div>
+	    	<div class="fa">
+	    		<div class="big1_ti">
+	    			<h3>快速发帖</h3>
+	    		</div>
+	    		<div class="fa_c">
+	    			<select>
+	    				<option value="0">选择主题分类</option>
+	    				<option value="1">技术交流</option>
+	    				<option value="2">HTML5游戏教程</option>
+	    				<option value="3">业内观点</option>
+	    				<option value="3">答疑解惑</option>
+	    				<option value="3">HTML5动画</option>
+	    				<option value="3">HTML5模板</option>
+	    				<option value="3">音频视频播放器</option>
+	    			</select>	
+	    			<input type="text" name="" class="tex_title">
+	    			<span class="ti">还可输入80个字符</span>
+	    			<script type="text/plain" style="height:136px;width:980px" name="content"   id="container" ></script>
+	    			<input type="button" name="" id="btn_for" value="发表帖子">
+	    		</div>
+	    	</div>
+	    	
+		</div>
+	</div>
+	<div class="footTop">
+		<div class="ft_Z w">
+			<div class="ft_L fl">
+				<div class="html_logo">
+					<a href=""><img src="./imgs/sxplogo.png" alt=""></a>
+				</div>
+				<div class="wei_logo">
+					<img src="./imgs/sxpwei.png" alt="">
+				</div>
+			</div>
+			<div class="ft_R fr">
+				<ul class="ft_R-ul">
+					<li>
+						<ul class="ft_R-ulSml">
+							<li><a href="">HTML5</a></li>
+							<li>-</li>
+							<li><a href="">HTML5开发</a></li>
+							<li><a href="">CSS3开发</a></li>
+							<li><a href="">微信开发</a></li>
+							<li><a href="">HTML5游戏</a></li>
+						</ul>
+					</li>
+					<li>
+						<ul class="ft_R-ulSml">
+							<li><a href="">下载</a></li>
+							<li>-</li>
+							<li><a href="">H5手游下载</a></li>
+							<li><a href="">H5手机模板</a></li>
+							<li><a href="">H5 PC模板</a></li>
+							<li><a href="">H5开发教程</a></li>
+						</ul>
+					</li>
+					<li>
+						<ul class="ft_R-ulSml">
+							<li><a href="">H5技术引擎</a></li>
+							<li>-</li>
+							<li><a href="">Cocos2d-x</a></li>
+							<li><a href="">Egret(白鹭)</a></li>
+							
+						</ul>
+					</li>
+					<li>
+						<ul class="ft_R-ulSml">
+							<li><a href="">Javascript</a></li>
+							<li>-</li>
+							<li><a href="">js技术交流</a></li>
+							<li><a href="">jQuery技术交流</a></li>
+							<li><a href="">jQuery Mobile交流</a></li>
+						</ul>
+					</li>
+					<li>
+						<ul class="ft_R-ulSml">
+							<li><a href="">H5素材资源</a></li>
+							<li>-</li>
+							<li><a href="">美术资源</a></li>
+							<li><a href="">2D/3D模型</a></li>
+							<li><a href="">游戏资源</a></li>
+							
+						</ul>
+					</li>
+					<li>
+						<ul class="ft_R-ulSml">
+							<li><a href="">我们</a></li>
+							<li>-</li>
+							<li><a href="">蚂蚁HTML5社区简介</a></li>
+							<li><a href="">联系方式</a></li>
+							<li><a href="">广告</a></li>
+							<li><a href="">HTML5游戏</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="footBot">
+		<p>邮箱:Admin@zzfriend.com QQ:791577401 木子牛HTML5工作室 版权所有</p>
+		<p>
+			© 2014-2017
+			<a href="">MUZINIU Inc.</a>
+			<a href="">小黑屋</a>
+			<span>|</span>
+			<a href="">手机版</a>
+			<span>|</span>
+			<a href="">Archiver</a>
+			<span>|</span>
+			<strong>HANGNIU</strong>
+			<a href=""><img src="./imgs/security.png"></a>
+			<a href=""><img src="./imgs/pic1.gif"></a>
+		</p>
+		<p>Powered by <strong>MuZiNiu</strong>X3.2(<a href="">豫ICP备12017936号</a>)</p>
+		<p>
+			<a href=""><img src="./imgs/wj.png" alt=""></a>
+			<a href="">豫公网安备 41078102000103号</a>
+		</p>
+	</div>
+<script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>	
+<script type="text/javascript" src="/ueditor/ueditor.config.js"></script> 
+<script type="text/javascript" src="/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript">
+	    				var ue=UE.getEditor('container');
+	    			</script>
+
+</body>
+</html>

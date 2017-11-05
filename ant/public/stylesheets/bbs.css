@@ -1,0 +1,91 @@
+
+.nav_U>li:first-child a{
+	background:inherit;
+}
+.nav_U>li:nth-child(7) a{
+	background:#1F90FF;
+}
+.content_Z {
+    width: 980px;
+    height: 1860px;
+}
+.category table{
+	border-collapse:collapse;
+}
+.big1_ti{
+	width: 100%;
+	height: 43px;
+	border-top:3px solid #1f90de;
+	background:url(../imgs/m5bg.gif) no-repeat 8px 12px #f6f6f6;
+	padding-left:35px;
+}
+.big1_ti h3{
+	float:left;
+	color:#333;
+	height:40px;
+	font-size:16px;
+	line-height:40px;
+}
+.big1_ti .o{
+	color:#333;
+	height:40px;
+	font-size:12px;
+	line-height:40px;
+}
+.big1_ti .o a img{
+	margin:0 10px;
+}
+.category{
+	width:100%;
+	padding:20px 0;
+	width:980px;
+	/*height: 380px;*/
+}
+.category tr{
+	width:980px;
+	height:68px;
+	border-bottom:1px dashed #D1D1D1;
+}
+.category tr:last-child{
+	border-bottom:0;
+}
+.category .zhu{
+	width:543px;
+	height:68px;
+	line-height:20px;
+}
+.category .zhu h4 a{
+	font-weight:900;
+	color:#666;
+}
+.category .zhu p{
+	color:#666;
+}
+.category .cha_count{
+	width:150px;
+	height:68px;
+	padding-left:10px;
+}
+.category .lun_ti {
+	padding-left:10px;
+	color:#333;
+	line-height:20px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:normal;
+}
+.category .lun_ti h4{
+	width: 228px;
+	height:20px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:normal;
+}
+.category .lun_ti h4 a{
+	color:#336699;
+	
+}
+.category .lun_ti p a{
+	color:#666;
+	margin-left:10px;
+}

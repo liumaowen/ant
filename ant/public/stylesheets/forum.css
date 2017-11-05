@@ -1,0 +1,268 @@
+.nav_U>li:first-child a{
+	background:inherit;
+}
+.nav_U>li:nth-child(7) a{
+	background:#1F90FF;
+}
+.content_Z{
+	width: 980px;
+    height:2258px;
+}
+.con_Ltop{
+	color:#666;
+	/*padding-left:15px;*/
+	height: 29px;
+	width: 300px;
+	line-height:29px;
+	margin-top:20px;
+}
+.con_Ltop a{
+	color:#666;
+}
+.con_Ltop .shou{
+	width: 16px;
+	height: 29px;
+	display:block;
+	float:left;
+	background:url(../imgs/search2.png) no-repeat 0px 0px;
+}
+.con_Ltop>.shou1,.con_Ltop_sp{
+	float:left;
+	display:block;
+	/*width: 24px;*/
+	height: 29px;
+	text-align:center;
+}
+.con_Ltop>.shou2{
+	width: 83px;
+}
+.tm_h{
+	width:980px;
+	height:48px;
+	border-bottom:3px solid #f6f6f6;
+}
+.tm_h-1{
+	/*width:980px;*/
+	height:48px;
+	line-height:48px;
+	color:#666;
+}
+.tm_h-1 h3{
+	float:left;
+	font-size:14px;
+	font-weight:900;
+	color:#666;
+}
+.tm_h-1 span{
+	margin-left:20px;
+}
+.tm_h-1 .tm_h-2_1{
+	background:url(../imgs/fav.gif) no-repeat 0px 0px;
+	padding-left:20px;
+}
+.tm_h-1 .tm_h-2_2{
+	background:url(../imgs/feed.png) no-repeat 0px 0px;
+	padding-left:20px;
+}
+.tm_ptn{
+	color:#666;
+}
+.tm_pgt{
+	width: 980px;
+	height: 36px;
+	margin:15px 0;
+}
+.tm_pgt .tm_pa{
+	display:block;
+	width: 115px;
+	height: 36px;
+	background:url(../imgs/pn_post.png) no-repeat 0px 0px;
+}
+.tm_tp{
+	height: 40px;
+	line-height:25px;
+}
+
+.tm_tp li a{
+	float:left;
+	margin-left:15px;
+}
+.tm_tp li:nth-child(1) a{
+	display:block;
+	width: 48px;
+	height:25px;
+	color:#fff;
+	margin-left:0px;
+	text-align: center;
+	background:#1F90DE;
+	line-height:25px;
+}
+.tm_tp span{
+	padding:0 5px;
+	background:#999;
+	border-radius:3px;
+	color:#fff;
+	font-weight:normal;
+	margin-left:5px;
+}
+.tm_tp li a{
+	color:#666;
+	font-weight:800;
+}
+.tm_tp li:nth-child(2) a{
+	color:#006400;
+}
+.tm_tp li:nth-child(3) a{
+	color:#83a60b;
+}
+.tm_tp li:nth-child(5) a{
+	color:#ff0000;
+}
+.tm_tp li:nth-child(6) a{
+	color:#ffc000;
+}
+.thearlist{
+	border-top:3px solid #1f90de;
+}
+.thearlist .th{
+	width: 980px;
+	height: 63px;
+	padding:5px 0;
+	border-bottom:1px solid #f6f6f6;
+}
+.th table{
+	width: 100%;
+	border-collapse:collapse;
+}
+.th tr{
+	width: 100%;
+	height: 53px;
+	
+	color:#333;
+}
+.th tr .th_1{
+	width: 670px;
+}
+.th tr .th_1 a{
+	color:#336699;
+	margin-right:5px;
+}
+.th tr .th_1 a:first-child{
+	margin-right:10px;
+}
+.th tr .th_2{
+	width: 105px;	
+}
+.thearlist tr:hover{
+	background:#f1f1f1;
+}
+.icon{
+	width: 25px;
+}
+.th_z{
+	border-collapse:collapse;
+	width: 100%;
+}
+.th_z tr{
+	border-bottom:1px solid #f6f6f6;
+}
+.th_z tr:last-child{
+	border-bottom:0;
+}
+.new_title{
+	width: 564px;
+	height: 53px;
+	font-size:14px;
+	color:#333;
+	font-weight:900;
+}
+.new_title a{
+	color:#ff0000;
+}
+.tr_z .new_title a{
+	color:#666;
+}
+.tr_z .new_title{
+	font-weight:400;
+}
+.by{
+	width: 105px;
+	line-height:18px;
+}
+.num{
+	width: 60px;
+	line-height:18px;
+}
+.thearlist .xiao_title{
+	color:#006400;
+	font-size:12px;
+}
+.thearlist .line{
+	height: 25px;
+	background:#f1f1f1;
+}
+.line .new_title{
+	height: 25px;
+}
+.line .new_title a{
+	color:#666;
+	font-size:12px;
+	padding-right:15px;
+	background:url(../imgs/refresh.png) no-repeat 50px 3px;
+}
+.nextpager{
+	display:block;
+	width: 980px;
+	height: 40px;
+	line-height:40px;
+	text-align:center;
+	font-size:14px;
+	color:#333;
+	background:#f6f6f6;
+	border-radius:3px;
+	margin:10px 0;
+}
+.big1_ti{
+	width: 100%;
+	height: 43px;
+	border-top:3px solid #1f90de;
+	background:url(../imgs/m5bg.gif) no-repeat 8px 12px #f6f6f6;
+	padding-left:35px;
+}
+.big1_ti h3{
+	float:left;
+	color:#333;
+	height:40px;
+	font-size:16px;
+	line-height:40px;
+}
+.fa_c{
+	width: 980px;
+	height: 245px;
+	padding:20px 0;
+}
+.fa_c select{
+	width: 110px;
+	height: 24px;
+	border-color:#848484 #DBDBDB #DBDBDB #848484;
+}
+.tex_title{
+	width: 306px;
+	height: 24px;
+	border:1px solid;
+	border-color:#848484 #DBDBDB #DBDBDB #848484;
+}
+.fa_c .ti{
+	color:#333;
+}
+#container{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+#btn_for{
+	width: 68px;
+	height: 26px;
+	color:#fff;
+	background:#1f90de;
+	cursor:pointer;
+}

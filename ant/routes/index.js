@@ -24,7 +24,6 @@ router.get('/', function(req, res) {
 	async.series(tasks,function(err,result){
 		if(!err){
 			res.render("./ant/index",{islog:loginUser,log:isLogined,f1:result.cate,zx:result.arts});
-		}else{
 		}
 	})
 
@@ -127,38 +126,26 @@ router.post("/article_sub",function(req,res){
     var loginUser = cook.loginUser;
     var isLogined = !!loginUser;
     if(isLogined){
-    	var tasks={
-			into:function(callback){
-				query("insert into comments(time,content,author,articleID)values(?,?,?,?)",arr_article,function(err,result){
-					callback(err,result);
-				})
-			  }
-	    };
-		async.series(tasks,function(err,result){
-			var r=xq.articleID;
-			res.json({data:xq})
-		})
+    	if(xq.text_ar==""|xq.text_ar=="内容不能为空"){
+    		res.json({ok:1})
+    	}else{
+    		var tasks={
+    			into:function(callback){
+    				query("insert into comments(time,content,author,articleID)values(?,?,?,?)",arr_article,function(err,result){
+    					callback(err,result);
+    				})
+    			}
+    		};
+    		async.series(tasks,function(err,result){
+    			var r=xq.articleID;
+    			res.json({data:xq})
+    		})
+    	}
+    	
     }else{ 
 		res.json({ok:0,id:nid})
     } 	
 	
-});
-
-//点击登录
-router.post("/get_log",function(req,res){
-	var da=req.body;
-	query('select * from grzx where username=?', da.t,function(err,data){
-	    if(data.length>0){
-	      if(data[0].pass== da.p){
-	      	res.cookie('loginUser', data[0],{httpOnly:false,maxAge: 60*60 * 1000 });
-	        res.json({ok:1,n:da.arn})
-	      }else{
-	        res.json({ok:0})
-	      }
-	    }else{
-	    	res.json({ok:2})
-	    }
-  })
 });
 
 //登录页
@@ -178,6 +165,31 @@ router.get("/article_log",function(req,res){
 		}
 	})
 });
+
+//点击登录
+router.post("/get_log",function(req,res){
+	var da=req.body;
+	if(da.t==""&&da.p==""){
+		res.json({ok:3})
+	}else{
+		query('select * from grzx where username=?', da.t,function(err,data){
+			console.log(data)
+			if(data.length>0){
+				if(data[0].pass== da.p){
+					res.cookie('loginUser', data[0],{httpOnly:false,maxAge: 60*60 * 1000 });
+					res.json({ok:1,n:da.arn})
+				}else{
+					res.json({ok:0})
+				}
+			}else{
+				res.json({ok:2})
+			}
+		})
+	}
+	
+});
+
+
 
 //进入注册页面
 router.get("/_reg",function(req,res){
@@ -213,10 +225,86 @@ router.get("/logout",function(req,res){
 	res.redirect("/")
 })
 
+//论坛页面
+router.get("/bbs",function(req,res){
+	var cook = req.cookies;
+    var loginUser = cook.loginUser;
+    var isLogined = !!loginUser;
+	var tasks={
+		cate:function(callback){
+			query("select * from category",function(err,result){
+				callback(err,result);
+			})
+		},
+		bk:function(callback){
+			query("select * from bk",function(err,result){
+				callback(err,result);
+			})
+		},
+		zhuti:function(callback){
+			query("select * from zhuti",function(err,result){
+				callback(err,result);
+			})
+		}
 
+	};
+	async.series(tasks,function(err,results){
+		if(!err){
+			res.render("./ant/bbs",{islog:loginUser,log:isLogined,f1:results.cate,zx:results.bk,zt:results.zhuti});
+		}
+	})
+});
 
+//主题页面
+router.get("/forum",function(req,res){
+	var n=req.query.id;
+	var cook = req.cookies;
+    var loginUser = cook.loginUser;
+    var isLogined = !!loginUser;
+	var tasks={
+		cate:function(callback){
+			query("select * from category",function(err,result){
+				callback(err,result);
+			})
+		},
+		tiezi:function(callback){
+			query("select * from tiezi where zhutiID=? order by id desc limit 0,19",n,function(err,result){
+				callback(err,result);
+			})
+		}
 
+	};
+	async.series(tasks,function(err,results){
+		if(!err){
+			res.render("./ant/forum",{islog:loginUser,log:isLogined,f1:results.cate,tz:results.tiezi});
+		}
+	})
+})
+//主题详情页
+router.get("/thread",function(req,res){
+	var n=req.query.id;
+	var cook = req.cookies;
+    var loginUser = cook.loginUser;
+    var isLogined = !!loginUser;
+	var tasks={
+		cate:function(callback){
+			query("select * from category",function(err,result){
+				callback(err,result);
+			})
+		},
+		tiezi:function(callback){
+			query("select * from tiezi where id=?",n,function(err,result){
+				callback(err,result);
+			})
+		}
 
+	};
+	async.series(tasks,function(err,results){
+		if(!err){
+			res.render("./ant/thread",{islog:loginUser,log:isLogined,f1:results.cate,tz:results.tiezi});
+		}
+	})
+})
 
 
 

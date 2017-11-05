@@ -2,6 +2,7 @@ window.onload=function(){
 	
 //导航栏首页的href默认修改
 $(".nav_U li").eq(0).children("a").attr("href","/");
+$(".nav_U li").eq(6).children("a").attr("href","/bbs");
 // $(".nav_U li").eq(0).addClass("act_blu");
 // $(".nav_U li").click(function(){
 // 	$(this).addClass("act_blu").siblings(this).removeClass("act_blu")
@@ -17,7 +18,8 @@ $(window).scroll(function(){
 		$(".nav").css({
 			"position":"fixed",
 			"top":0,
-			"z-index":200
+			"z-index":200,
+			"opacity":0.85
 		})
 	}else{
 		$(".nav").css({

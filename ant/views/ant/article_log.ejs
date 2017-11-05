@@ -101,6 +101,9 @@
 						$(".user_prom").text("用户名错误").addClass("ac_red")
 					}else if(n==0){
 						$(".pass_prom").text("密码错误").addClass("ac_red")
+					}else if(n==3){
+						$(".user_prom").text("用户名不能为空").addClass("ac_red")
+						$(".pass_prom").text("密码不能为空").addClass("ac_red")
 					}
 				}
 			})

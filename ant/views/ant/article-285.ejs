@@ -90,7 +90,7 @@
 			<span class="con_Ltop_sp">></span>
 			<a class="shou1 shou2" href=""><%= da[0].cate %></a>
 			<span class="con_Ltop_sp">></span>
-			资查看内容	
+			查看内容	
 		</div>
 		<div class="content_Z">
 			<div class="con_left fl">
@@ -451,18 +451,20 @@
 				data:{articleID:articleID,time:d,text_ar:comments,user:articleName,author:u},
 				success:function(msg){
 					var d=msg.id;
-					console.log(msg)
+					// console.log(msg)
 					if(msg.ok==0){
 						window.location.href="/article_log?d="+d;	//点击评论没登录跳转到登录页
+					}else if(msg.ok){
+					    $("#comments").val("内容不能为空").css("color","red");
+					    $("#comments").on("focus",function(){
+					    	$(this).val("").css("color","#666")
+					    })
 					}else{
-					    //window.location.href='/article-285?id='+d;  //点击评论已登录跳转到当前页
+						//window.location.href='/article-285?id='+d;  //点击评论已登录跳转到当前页
 					    var s=msg.data;
 					    	var p="<div class='com_content'><p class='comp1'><span class='quo'><a href=''>引用</a></span><a href='' class='username'>"+s.author+ "</a><span class='com_time'> "+s.time+ "</span></p><p  class='comp2'>" +s.text_ar+ "</p></div>"
 					    $(".com_top").after(p);
 					    $("#comments").val('')
-
-
-
 					}
 				}
 			})
