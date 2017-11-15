@@ -120,7 +120,6 @@ router.get("/tiao",function(req,res){
 router.post("/article_sub",function(req,res){
 	var xq=req.body;
 	var arr_article=[xq.time,xq.text_ar,xq.author,xq.articleID];
-	console.log(xq)
 	var nid=xq.articleID;
 	var cook = req.cookies;
     var loginUser = cook.loginUser;
@@ -173,7 +172,6 @@ router.post("/get_log",function(req,res){
 		res.json({ok:3})
 	}else{
 		query('select * from grzx where username=?', da.t,function(err,data){
-			console.log(data)
 			if(data.length>0){
 				if(data[0].pass== da.p){
 					res.cookie('loginUser', data[0],{httpOnly:false,maxAge: 60*60 * 1000 });

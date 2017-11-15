@@ -9,79 +9,142 @@
 	<link rel="stylesheet" type="text/css" href="./stylesheets/bbs.css">
 </head>
 <body>
-	<div class="header">
-		<div class="w header_B">
-			<div class="header_Bleft fl">
-				<a href="#">设为首页</a>
-				<a href="#">收藏本站</a>
+<div class="header">
+	<div class="w header_B">
+		<div class="header_Bleft fl">
+			<a href="#">设为首页</a>
+			<a href="#">收藏本站</a>
+		</div>
+		<div class="header_Bright fr">
+			<% if(log){ %>
+			<div class="log_Z">
+				
+				<a href="#" class="user_img login" style="float:left">
+					<%= islog.username %>
+				</a>
 			</div>
-			<div class="header_Bright fr">
-				<% if(log){ %>
-				<div class="log_Z">
-					
-					<a href="#" class="user_img login" style="float:left">
-						<%= islog.username %>
-					</a>
-				</div>
-				<a href="/logout" style="float:left;display:block;width: 41px;height: 45px;line-height:45px;border-right:1px solid #e5e5e5">注销</a>
-				<% }else{ %>	
-				<div class="log_Z">
-					<a href="#" class="login">
-						请登录
-					</a>
-					<div class="log">
-						<p>用户名：</p>
-						<input type="text" name="" class="text" id="username">
-						<p>密码:<a href="" class="fr">忘记密码？</a></p>
-						<input type="password" name="" class="pass" id=pass>
-						<div class="log1">
-							<input type="checkbox" name=""><span>下次自动登录</span>
-							<input type="button" name="" id="btn" value="立即登录">
-						</div>
-						<p  class=La_p><a href="">QQ账号登录</a></p>
+			<a href="/logout" style="float:left;display:block;width: 41px;height: 45px;line-height:45px;border-right:1px solid #e5e5e5">注销</a>
+			<% }else{ %>	
+			<div class="log_Z">
+				<a href="#" class="login">
+					请登录
+				</a>
+				<div class="log">
+					<p>用户名：</p>
+					<input type="text" name="" class="text" id="username">
+					<p>密码:<a href="" class="fr">忘记密码？</a></p>
+					<input type="password" name="" class="pass" id=pass>
+					<div class="log1">
+						<input type="checkbox" name=""><span>下次自动登录</span>
+						<input type="button" name="" id="btn" value="立即登录">
 					</div>
+					<p  class=La_p><a href="">QQ账号登录</a></p>
 				</div>
-				<a href="/_reg" class="register">立即注册</a>
-				<% } %>
-				<a href="#" class="kuai"></a>
+			</div>
+			<a href="/_reg" class="register">立即注册</a>
+			<% } %>
+			<a href="#" class="kuai"></a>
+		</div>
+	</div>
+</div>
+<div class="header_Top w">
+	<div class="HH_top">
+		<div class="H_top">
+			<div class="logo fl">
+				<a href="#"><img src="./imgs/logo.png"></a>
+			</div>
+			<div class="search fr">
+				<input class="sctext fl" type="text" name="" placeholder="请输入搜索内容">
+				<div class="stick">
+					<a href="javascript:;" class="scbar fl">帖子</a>
+					<ul class="stick1">
+						<li><a href="javascript:;">文章</a></li>
+						<li><a href="javascript:;">帖子</a></li>
+						<li><a href="javascript:;">用户</a></li>
+					</ul>
+				</div>
+
+				<input type="button" name="" class="scbtn fl">
 			</div>
 		</div>
 	</div>
-	<div class="header_Top w">
-		<div class="HH_top">
-			<div class="H_top">
-				<div class="logo fl">
-					<a href="#"><img src="./imgs/logo.png"></a>
-				</div>
-				<div class="search fr">
-					<input class="sctext fl" type="text" name="" placeholder="请输入搜索内容">
-					<div class="stick">
-						<a href="javascript:;" class="scbar fl">帖子</a>
-						<ul class="stick1">
-							<li><a href="javascript:;">文章</a></li>
-							<li><a href="javascript:;">帖子</a></li>
-							<li><a href="javascript:;">用户</a></li>
-						</ul>
-					</div>
+	<div class="nav">
+		<img class="nav_new" src="imgs/new.gif">
+		<img class="nav_hot" src="imgs/hot.gif">
+		<ul class="nav_U">
+			<% for(var i=0;i<f1.length;i++){ %>
+			<li>
+				<a href="/tiao?n=<%= f1[i].cname %>" title="<%= f1[i].title %>"><%= f1[i].cname %></a>
+			</li>
+			<% } %>
 
-					<input type="button" name="" class="scbtn fl">
-				</div>
-			</div>
-		</div>
-		<div class="nav">
-			<img class="nav_new" src="imgs/new.gif">
-			<img class="nav_hot" src="imgs/hot.gif">
-			<ul class="nav_U">
-				<% for(var i=0;i<f1.length;i++){ %>
-				<li>
-					<a href="/tiao?n=<%= f1[i].cname %>" title="<%= f1[i].title %>"><%= f1[i].cname %></a>
-				</li>
-				<% } %>
-
-			</ul>
-		</div>
+		</ul>
 	</div>
-
+</div>
+<p class="tit w">
+ <a href="#" class="iron2"></a>&gt;&nbsp;论坛
+ <a href="#" class="fr">html5游戏，棒打疯猫开放源码下载！<span>(2015-9-24)</span></a>
+</p>
+<div class="ban w">
+	<div class="banner fl">
+		<ul class="ulist">
+			<li><a href="#"><img src="/imgs/114444f3lddfosd9vdovoz.jpg" alt=""/></a></li>
+			<li><a href="#"><img src="/imgs/sc.jpg" alt=""/></a></li>
+			<li><a href="#"><img src="/imgs/wzzc.jpg" alt=""/></a></li>
+			<li><a href="#"><img src="/imgs/lcz.jpg" alt=""/></a></li>
+			<li><a href="#"><img src="/imgs/zuqiu.jpg" alt=""/></a></li>
+		</ul>
+		<ol class="olist">
+			<li class="acc"><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+		</ol>
+    </div>
+	<div class="fr">
+	  <div class="not">
+	    <a href="#">最新主题</a>
+	    <a href="#">最新回复</a>
+	    <a href="#">热帖推荐</a>
+	  </div>
+	  <div class="cont">
+	    <ul>
+	      <li><i></i><a href="#">百家手机棋牌游戏源码1.0</a></li>
+	      <li><i></i><a href="#">audio标签播放不了音频，使用谷歌浏览器直接打开音频，音频控件</a></li>
+	      <li><i></i><a href="#">挑战飞行棋，童年经典游戏源码下载</a></li>
+	      <li><i></i><a href="#">Cocos2d 彩色泡泡五子棋 源码</a></li>
+	      <li><i></i><a href="#">房卡麻将(亲测)+教程+工具，可运行！欢迎下载！</a></li>
+	      <li><i></i><a href="#">经典卡牌手游【魔兽传奇】Cocos2d游戏源码</a></li>
+	      <li><i></i><a href="#">Unity3D Adventure（冒险）游戏 源码下载</a></li>
+	      <li><i></i><a href="#">【h5游戏源码】弗莱迪的实验</a></li>
+	    </ul>
+	    <ul>
+	      <li><i></i><a href="#">介绍一个简单的HTML5的小游戏——打地鼠</a></li>
+	      <li><i></i><a href="#">HTML5游戏《超速麻将》源码完整下载</a></li>
+	      <li><i></i><a href="#">经典射击类游戏《雷电》全套资源素材</a></li>
+	      <li><i></i><a href="#">手游【欢乐斗地主】全套美术资源</a></li>
+	      <li><i></i><a href="#">快速吸粉神器《测试你的自拍微笑指数》</a></li>
+	      <li><i></i><a href="#">《全民挂机》客户端源码 + 服务端源码 + 全套完整资源</a></li>
+	      <li><i></i><a href="#">JQueryMobile从入门到精通配项目实战第一部分</a></li>
+	      <li><i></i><a href="#">Kendo UI 和 jQuery Mobile两大框架评测</a></li>
+	    </ul>
+	    <ul>
+	      <li><i></i><a href="#">房卡麻将(亲测)+教程+工具，可运行！欢迎下载！</a></li>
+	      <li><i></i><a href="#">挑战飞行棋，童年经典游戏源码下载</a></li>
+	      <li><i></i><a href="#">【h5游戏源码】弗莱迪的实验</a></li>
+	      <li><i></i><a href="#">百家手机棋牌游戏源码1.0</a></li>
+	      <li><i></i><a href="#">求大腿指点ajax请求成功后打开新页面被浏览器拦截</a></li>
+	      <li><i></i><a href="#">经典卡牌手游【魔兽传奇】Cocos2d游戏源码</a></li>
+	      <li><i></i><a href="#">Cocos2d 彩色泡泡五子棋 源码</a></li>
+	      <li><i></i><a href="#">audio标签播放不了音频，使用谷歌浏览器直接打开音频，音频控件</a></li>
+	    </ul>
+	  </div>
+	</div>
+    <p><img src="/imgs/chart.png" alt=""/> 今日: <span>27</span>| 昨日: <span>64</span>  | 帖子: <span>35103</span> | 会员: <span>17757</span> | 欢迎新会员:<a href="#">苹果</a>
+       <a href="#" class="rig">最新回复</a>
+    </p>
+</div>
 <div class="content w">
 	<div class="content_Z">
 		<div class="big">
@@ -225,7 +288,7 @@
 	</p>
 </div>
 <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>	
-<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript" src="./js/bbs.js"></script>
 	
 </body>
 </html>

@@ -6,12 +6,20 @@
 
 <script src="/js/jqPaginator.js"></script>
 <style>
-.table td{
-	text-align: center;
-	width: 50px;
-	height: 50px;
+#table {
+	text-align:center;
+/*	table-layout: fixed;*/
+}
+#table th{
+	height:30px;
+	text-align:center;
+}
+#table td div{
+	width: 200px;
+	height: 100px;
 	overflow:hidden;
-	word-break:  normal;
+	text-overflow:ellipsis;
+	white-space:normal;
 }
 .table td{
 	text-align:center;
@@ -31,7 +39,7 @@ img {
 	</nav>
 	<a class="btn btn-primary radius" data-title="添加资讯" _href="/admin/addarticle" onclick="article_add('添加资讯','/admin/addarticle')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加资讯</a>
 	<div class="mt-20">
-		<table total="<%= total_rows %>" class="table table-border table-bordered table-bg table-hover table-sort">
+		<table total="<%= total_rows %>" class=" table-border table-bordered table-bg table-hover table-sort" id="table">
 			<thead>
 				<tr>
 					<th width="25"><input type="checkbox" name="" value=""></th>
@@ -69,7 +77,7 @@ img {
 	$("#menu-article dd").show();
 
 	
-   var total=$(".table").attr('total');
+   var total=$("#table").attr('total');
 
     $.jqPaginator('#pagination1', {
         totalPages: total-0 ,
@@ -106,7 +114,7 @@ img {
                      //    html+="</tr>" ;
 
 
-                        var t="<tr><th width='25'><input type='checkbox' >"+"</th><td>"+message[i].id+"</td><td>"+message[i].title+"</td><td>"+message[i].author+"</td><td>"+message[i].cate+"</td><td><img src='/upload/"+message[i].pic+"'/></td><td>"+message[i].shijian+"</td><td>"+message[i].summary+"</td><td>"+message[i].content+"</td><td>"+"<a href='/admin/delete?id="+message[i].id+"' >删除</a><a href='/admin/editor?id="+message[i].id+"'>编辑</a><a href=''>查询</a></td></tr>";
+                        var t="<tr><th width='25'><input type='checkbox' >"+"</th><td>"+message[i].id+"</td><td>"+message[i].title+"</td><td>"+message[i].author+"</td><td>"+message[i].cate+"</td><td><img src='/upload/"+message[i].pic+"'/></td><td>"+message[i].shijian+"</td><td><div>"+message[i].summary+"</div></td><td><div>"+message[i].content+"</div></td><td>"+"<a href='/admin/delete?id="+message[i].id+"' >删除</a><a href='/admin/editor?id="+message[i].id+"'>编辑</a><a href=''>查询</a></td></tr>";
                         $("tbody").append(t);
                     };
                      // $("tbody").html(html);

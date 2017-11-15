@@ -9,7 +9,7 @@
 }
 .con_left{
 	width: 668px;
-	height:3172px;
+	/*height:3172px;*/
 	padding-right: 12px;
 	border-right:0;
 }
@@ -66,20 +66,21 @@
    background:#F4F4F4;
    line-height:46px;
    padding-left:15px;
-   overflow:hidden;
-   text-overflow:ellipsis;
-   white-space:nowrap;
 }
 .digest p strong{
 	color:red;
 	font-weight:normal;
 }
 .digest p{
+	width: 645px;
+	height: 46px;
 	color:#336699;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }
 .state{
 	width: 653px;
-	/*height: 50px;*/
 	text-align:center;
 	color:#444;
 	font-size:14px;
